@@ -19,11 +19,11 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @parking = Parking.new(review_params_parking)
+    @parking = current_user.cars.last.givings.last.parking
     @booking = Booking.new(review_params_booking)
     @booking.giver_car = current_user.cars.last
     @booking.parking = @parking
-    if @parking.save && @booking.save
+    if @booking.save
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
@@ -42,9 +42,5 @@ class BookingsController < ApplicationController
 private
   def review_params_booking
     params.require(:booking).permit(:available_at)
-  end
-
-  def review_params_parking
-    params.require(:parking).permit(:address)
   end
 end
