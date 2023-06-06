@@ -1,10 +1,9 @@
 puts "Cleaning database ..."
- sleep(1)
 
-User.destroy.all
-Car.destroy.all
-Booking.destroy.all
-Parking.destroy.all
+User.destroy_all
+Car.destroy_all
+Booking.destroy_all
+Parking.destroy_all
 
 require "open-uri"
 
@@ -30,3 +29,5 @@ parking_3 = Parking.create!(address: "63, boulevard Voltaire, 75011 PARIS", lati
 booking_1 = Booking.create!(available_at: "20230606130100", parking: parking_1, giver_car: car_karengiver )
 booking_2 = Booking.create!(available_at: "20230606132300", parking: parking_2, giver_car: car_aligiver )
 booking_3 = Booking.create!(available_at: "20230606133300", parking: parking_3, giver_car: car_damsogiver )
+
+puts "seeds upload all"
