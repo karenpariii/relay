@@ -1,12 +1,16 @@
 class BookingsController < ApplicationController
 
   def index
-    # @bookings = Booking.all
+    @parkings = Parking.all
+    @markers = @parkings.geocoded.map do |parking|
+      {
+        lat: parking.latitude,
+        lng: parking.longitude
+      }
+    end
   end
 
   def show
-    # @user = User.find(params(user[:id]))
-    # @booking = Booking.new(params(@user))
   end
 
   def new

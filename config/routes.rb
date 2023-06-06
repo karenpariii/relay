@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: "pages#home"
-  resources :cars, only: %i[show] do
-    resources :bookings
-  end
+  devise_for :users
+  resources :cars, only: ['show']
+  resources :bookings
 end
