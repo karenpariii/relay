@@ -1,4 +1,13 @@
-<div style="width: 100%; height: 650px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<div class="d-flex justify-content-center align-items-center my-5">
+  <i class="fa-sharp fa-solid fa-car-side me-2" style="color: #141414;"></i>RE<i class="fa-solid fa-arrow-right" style="color: #141414;"></i>LAY
+</div>
+
+<div class="container d-flex ">
+  <div style="width: 100%; height: 500px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
+ </div>
