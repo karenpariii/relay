@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
-    @parkings = Parking.all
+    @parkings = Parking.joins(:bookings).where(bookings: { taker_car: nil })
     @markers = @parkings.geocoded.map do |parking|
       {
         lat: parking.latitude,
