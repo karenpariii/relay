@@ -1,4 +1,6 @@
-<%= simple_form_for @booking do |f| %>
-  <%= f.input :available_at %>
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <%= simple_form_for @booking do |f| %>
+    <%= f.input :available_at, as: :datetime, html5: true, input_html:{value: Time.new.strftime('%Y-%m-%dT%k:%M')} %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>
