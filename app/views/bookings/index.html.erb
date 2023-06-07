@@ -1,27 +1,26 @@
-<div class = container>
+<div class = "container">
   <div style="width: 100%; height: 450px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-<% @parkings.each do |parking| %>
-  <% parking.bookings.each do |booking| %>
-    <div class="card-booking">
-      <% if booking.giver_car.car_type == "citadine" %>
-        <%= cl_image_tag("citadine.png", width: 50, height: 50, crop: :fill) %>
-      <%# elsif booking.car.type == "berline" %>
-        <%#= cl_image_tag("berline.png", width: 50, height: 50, crop: :fill) %>
-      <%# elsif booking.car.type == "van" %>
-        <%#= cl_image_tag("van.png", width: 50, height: 50, crop: :fill) %>
-      <div class="card-booking-infos">
-        <h2><%= booking.available_at %></h2>
-        <p><%= parking.address %></p>
-        <p><%= booking.car.plate %></p>
-        <p><%= booking.car.color %></p>
-      <% end %>
+  <% @parkings.each do |parking| %>
+    <% parking.bookings.each do |booking| %>
+      <div class="card-booking">
+        <% if booking.giver_car.car_type == "citadine" %>
+          <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
+        <% elsif booking.giver_car.car_type == "berline" %>
+          <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
+        <% elsif booking.giver_car.car_type == "van" %>
+          <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
+        <% end %>
+        <div class="card-booking-infos">
+          <h2><%= booking.available_at %></h2>
+          <p><%= parking.address %></p>
+          <p><%= booking.giver_car.plate %><%= booking.giver_car.car_color %></p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-    </div>
-  </div>
-<% end %>
 </div>
