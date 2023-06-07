@@ -13,5 +13,24 @@
 
   <body>
     <%= yield %>
+    <div>
+      <nav class="navbar fixed-bottom navbar-light bg-light d-flex">
+        <%= link_to root_path, class: "navbar-style" do %>
+          <i class="fa-sharp fa-solid fa-location-dot navbar-relay"></i>
+        <% end %>
+        <%= link_to root_path, class: "navbar-style" do %>
+          <i class="fa-solid fa-car-side navbar-relay"></i>
+        <% end %>
+        <%= link_to root_path, class: "navbar-style" do %>
+          <i class="fa-solid fa-heart navbar-relay"></i>
+        <% end %>
+        <%= link_to root_path, class: "navbar-style" do %>
+          <i class="fa-solid fa-message navbar-relay"></i>
+        <% end %>
+        <%= link_to root_path, class: "navbar-style" do %>
+          <i class="fa-solid fa-user navbar-relay"></i>
+        <% end %>
+      </nav>
+    </div>
   </body>
 </html>
