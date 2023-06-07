@@ -1,0 +1,14 @@
+.container {
+  background-color: lightpink;
+  height: 595 px;
+  width: 375px;
+}
+
+.form-container {
+  display: flex;
+  height: calc(100vh - 72px);
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
