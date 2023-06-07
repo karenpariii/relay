@@ -16,7 +16,7 @@
           <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
         <% end %>
         <div class="card-booking-infos">
-          <div class="d-flex align-items-end"><%= link_to "Se garer" dashboard_path(dashboard), class: 'btn btn-primary' %></div>
+          <%# <div class="d-flex align-items-end"><%= link_to "Se garer" dashboard_path(dashboard), class: 'btn btn-primary' %></div> %>
           <h2><%= booking.available_at %></h2>
           <p><%= parking.address %></p>
           <p><%= booking.giver_car.plate %><%= booking.giver_car.car_color %></p>
