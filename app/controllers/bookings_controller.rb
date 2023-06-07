@@ -20,7 +20,8 @@ class BookingsController < ApplicationController
 
   def create
     @parking = current_user.cars.last.givings.last.parking
-    @booking = Booking.new(review_params_booking)
+    user_entry_datetime = DateTime.strptime(review_params_booking[:available_at], '%Y-%m-%dT%k:%M')
+    @booking = Booking.new({ available_at: user_entry_datetime })
     @booking.giver_car = current_user.cars.last
     @booking.parking = @parking
     if @booking.save
@@ -39,7 +40,8 @@ class BookingsController < ApplicationController
   def delete
   end
 
-private
+  private
+
   def review_params_booking
     params.require(:booking).permit(:available_at)
   end
