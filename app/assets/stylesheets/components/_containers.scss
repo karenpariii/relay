@@ -14,3 +14,28 @@
   background-image: url("ground/texture-asphalte4b.png");
   background-size: cover;
 }
+
+.container-dashboard {
+  align-content: center;
+  justify-content: center;
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.container-booking {
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  background: white;
+  width: 300px;
+  height: fit-content;
+  border-radius: 50px;
+  padding: 20px;
+}
+.container-booking h2 {
+font-family: 'Laila', sans-serif;
+font-size: 20px;
+font-weight: bold;
+}
