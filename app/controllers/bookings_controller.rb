@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
     if params[:query].present?
       @parkings = Parking.near(params[:query], 1).joins(:bookings).where(bookings: { taker_car: nil })
     else
-      @parkings = Parking.all
+      @parkings = Parking.all.joins(:bookings).where(bookings: { taker_car: nil })
     end
 
     @markers = @parkings.geocoded.map do |parking|
