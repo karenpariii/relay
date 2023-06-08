@@ -4,6 +4,12 @@
 
 
 <div class = "container">
+  <%= form_with url: bookings_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Adresse" %>
+  <% end %>
   <div style="width: 100%; height: 450px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
