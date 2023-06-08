@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-
+    @booking = Booking.find(params[:id])
   end
 
   def new
@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(taker_car: current_user.cars.last)
-    redirect_to dashboard_path
+    redirect_to booking_path(@booking)
   end
 
   def delete

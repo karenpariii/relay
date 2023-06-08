@@ -13,3 +13,28 @@
   justify-content: center;
   background-image: url("https://images.unsplash.com/photo-1564668836804-05a2de350bb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");
 }
+
+.container-dashboard {
+  align-content: center;
+  justify-content: center;
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.container-booking {
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  background: white;
+  width: 300px;
+  height: fit-content;
+  border-radius: 50px;
+  padding: 20px;
+}
+.container-booking h2 {
+font-family: 'Laila', sans-serif;
+font-size: 20px;
+font-weight: bold;
+}
