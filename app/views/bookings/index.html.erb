@@ -3,7 +3,6 @@
 </div>
 
 
-<div class = "container">
   <%= form_with url: bookings_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
     params[:query],
@@ -35,13 +34,12 @@
         <% end %>
         <div class="card-booking-infos flexbox">
           <div>
-            <h2><%= booking.available_at %></h2>
+            <h2><%= time_ago_in_words booking.available_at %></h2>
             <p><%= parking.address %></p>
             <p><strong>Immatriculation</strong><%= booking.giver_car.plate %> <strong>Couleur</strong><%= booking.giver_car.car_color %></p>
           </div>
-            <div><%= link_to "Se garer", booking_path(booking), data: {turbo_method: :patch}, class: 'button-blue' %></div>
+          <%= link_to "Se garer", booking_path(booking), data: {turbo_method: :patch}, class: 'button-blue' %>
         </div>
       </div>
     <% end %>
   <% end %>
-</div>
