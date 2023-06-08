@@ -1,6 +1,28 @@
 .form-booking {
-  background-color: lightblue;
-  margin: 5px;
+  background-image: url("ground/texture-white-stripe.png");
   padding: 20px;
-  border-radius: 10px;
+  background-size: cover;
+  // border-radius: 10px;
+  // margin: 5px;
+}
+
+.form-login {
+  background-image: url("ground/texture-white-stripe.png");
+  padding: 20px;
+  background-size: cover;
+  // border-radius: 10px;
+  // margin: 5px;
+
+  .btn {
+    width: 100%;
+    border: 1px solid #32313a;
+  }
+}
+
+.form-inputs {
+  color: #32313a
+}
+
+.form-actions {
+  color: #32313a
 }
