@@ -1,7 +1,15 @@
 class BookingsController < ApplicationController
 
   def index
-    @parkings = Parking.joins(:bookings).where(bookings: { taker_car: nil })
+    if params[:query].present?
+      @parkings = Parking.near(params[:query], 1)
+                         .joins(:bookings)
+                         .where(bookings: { taker_car: nil })
+                         .where("bookings.available_at BETWEEN ? AND ?", params[:time] - 10.minutes, params[:time] + 10.minutes)
+    else
+      @parkings = Parking.all.joins(:bookings).where(bookings: { taker_car: nil })
+    end
+
     @markers = @parkings.geocoded.map do |parking|
       {
         lat: parking.latitude,
@@ -31,7 +39,6 @@ class BookingsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
 
   def edit
   end

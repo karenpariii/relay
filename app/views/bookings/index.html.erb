@@ -4,6 +4,19 @@
 
 
 <div class = "container">
+  <%= form_with url: bookings_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Adresse" %>
+    <%= text_field_tag :time,
+    params[:time],
+    class: "form-control",
+    placeholder: "Time",
+    type: "time",
+    value: Time.new.strftime('%H:%M')%>
+  <% end %>
+
   <div style="width: 100%; height: 450px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
