@@ -26,16 +26,20 @@ class BookingsController < ApplicationController
     @booking.giver_car = current_user.cars.last
     @booking.parking = @parking
     if @booking.save
-      redirect_to root_path
+      redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+
   def edit
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    @booking.update(taker_car: current_user.cars.last)
+    redirect_to dashboard_path
   end
 
   def delete

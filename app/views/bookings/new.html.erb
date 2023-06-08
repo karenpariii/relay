@@ -1,6 +1,18 @@
 <div class="form-container">
+    <div class="form-booking">
 
-  <div class="form-booking">
+      <div class="adress-box">
+        <h2>Je rends ma place située au : </h2>
+        <p> <%= @parking.address %> </p>
+      </div>
+
+      <div class="datetime-box">
+        <h2>Je libère ma place à :</h2>
+        <%= simple_form_for @booking do |f| %>
+          <%= f.input :available_at, as: :datetime, html5: true, input_html:{value: Time.new.strftime('%Y-%m-%dT%k:%M')} %>
+          <%= f.submit "Submit", class: "button-blue-big" %>
+        <% end %>
+      </div>
 
     <div class="adress-box">
       <h2>Je rends ma place située au : </h2>
