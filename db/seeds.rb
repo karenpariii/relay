@@ -24,10 +24,16 @@ car_damsogiver = Car.create!(car_model: "Hummer limousine", plate: "AQ-567-KL", 
 parking_1 = Parking.create!(address: "68 avenue parmentier, 75011 PARIS", latitude: "48.86348471131329", longitude: "2.3769894173515214")
 parking_2 = Parking.create!(address: "5 rue moret, 75011 PARIS", latitude: "48.86686306488304", longitude: "2.3802539543881234")
 parking_3 = Parking.create!(address: "63, boulevard Voltaire, 75011 PARIS", latitude: "48.8619468876249", longitude: "2.3732971684091635")
+parking_4 = Parking.create!(address: "30 Rue René Boulanger, 75010 Paris", latitude: "48.86869353316412", longitude: "2.3619321708694296")
+parking_5 = Parking.create!(address: "110 Rue Amelot, 75011 Paris", latitude: "48.86349719499158", longitude: "2.3671810438195084")
+parking_6 = Parking.create!(address: "49 Rue du Chemin Vert, 75011 Paris", latitude: "48.85964004829994", longitude: "2.375311098558855")
 
 
-booking_1 = Booking.create!(available_at: "20230606130100", parking: parking_1, giver_car: car_karengiver )
-booking_2 = Booking.create!(available_at: "20230606132300", parking: parking_2, giver_car: car_aligiver )
-booking_3 = Booking.create!(available_at: "20230606133300", parking: parking_3, giver_car: car_damsogiver, taker_car: car_romaintaker )
+booking_1 = Booking.create!(available_at: "20230608160100", parking: parking_1, giver_car: car_karengiver )
+booking_2 = Booking.create!(available_at: "20230606152300", parking: parking_2, giver_car: car_aligiver )
+booking_3 = Booking.create!(available_at: "20230606153300", parking: parking_3, giver_car: car_damsogiver, taker_car: car_romaintaker)
+booking_4 = Booking.create!(available_at: "20230606155600", parking: parking_4, giver_car: car_karengiver )
+booking_5 = Booking.create!(available_at: "20230606162300", parking: parking_5, giver_car: car_aligiver )
+booking_6 = Booking.create!(available_at: "20230606153300", parking: parking_6, giver_car: car_damsogiver, taker_car: car_romaintaker )
 
 puts "seeds upload all"
