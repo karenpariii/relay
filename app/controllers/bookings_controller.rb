@@ -2,7 +2,10 @@ class BookingsController < ApplicationController
 
   def index
     if params[:query].present?
-      @parkings = Parking.near(params[:query], 1).joins(:bookings).where(bookings: { taker_car: nil })
+      @parkings = Parking.near(params[:query], 1)
+                         .joins(:bookings)
+                         .where(bookings: { taker_car: nil })
+                         .where("bookings.available_at BETWEEN ? AND ?", params[:time] - 10.minutes, params[:time] + 10.minutes)
     else
       @parkings = Parking.all.joins(:bookings).where(bookings: { taker_car: nil })
     end
