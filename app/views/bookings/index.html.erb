@@ -20,10 +20,13 @@
         <% elsif booking.giver_car.car_type == "van" %>
           <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
         <% end %>
-        <div class="card-booking-infos">
-          <h2><%= booking.available_at %></h2>
-          <p><%= parking.address %></p>
-          <p><%= booking.giver_car.plate %><%= booking.giver_car.car_color %></p>
+        <div class="card-booking-infos flexbox">
+          <div>
+            <h2><%= booking.available_at %></h2>
+            <p><%= parking.address %></p>
+            <p><strong>Immatriculation</strong><%= booking.giver_car.plate %> <strong>Couleur</strong><%= booking.giver_car.car_color %></p>
+          </div>
+            <div><%= link_to "Se garer", booking_path(booking), data: {turbo_method: :patch}, class: 'button-blue' %></div>
         </div>
       </div>
     <% end %>
