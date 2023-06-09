@@ -1,10 +1,13 @@
 <div class="index-container">
 
-  <div class="header-container py-3">
-    <i class="fa-sharp fa-solid fa-car-side me-2" style="color: #ebc041;"></i>RE<i class="fa-solid fa-arrow-right px-1" style="color: #141414;"></i>LAY
+  <div class="header-container py-2">
+    <p><i class="fa-sharp fa-solid fa-car-side me-2" style="color: #ebc041;"></i></p>
+    <p>RE</p>
+    <p><i class="fa-solid fa-arrow-right px-1" style="color: #ffffff"></i></p>
+    <p>LAY</p>
   </div>
 
-  <%= form_with url: bookings_path, method: :get, class: "map-search-fields-container mb-3" do %>
+  <%= form_with url: bookings_path, method: :get, class: "map-search-fields-container py-2" do %>
 
     <div class="map-search-field">
       <%= text_field_tag :query,
@@ -34,7 +37,7 @@
 
       <% @parkings.each do |parking| %>
         <% parking.bookings.each do |booking| %>
-          <div class="d-flex flex-column p-3 bg-white rounded mt-2 mx-2">
+          <div class="booking-card d-flex flex-column p-3 rounded mt-2">
             <div class="d-flex align-items-center">
               <% if booking.giver_car.car_type == "citadine" %>
                   <%= image_tag("cars/citadine.png", width: 70, height: 70, crop: :fill) %>

@@ -37,6 +37,8 @@
 .booking-card {
   display: flex;
   flex-direction: row;
+  background-image: url("ground/texture-white-stripe.png");
+  background-size: cover;
 }
 
 .booking-card-description {
