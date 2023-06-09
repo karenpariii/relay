@@ -26,7 +26,7 @@
           <p><%= @booking.giver_car.car_model%></p>
           <p><%= @booking.giver_car.car_type%></p>
           <p> <%= @booking.giver_car.car_color%></p>
-          <%= link_to "Supprimer", bookings_path, data: {turbo_method: :delete, turbo_confirm: "Vous êtes sûr?"}, class: 'button-pink-big'%>
+          <%= link_to "Valider", bookings_path, class: 'button-blue-big'%>
         </div>
       </div>
       <% else %>

@@ -20,15 +20,22 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @parking = @booking.parking
+    @parking.geocode
+    @markers = [{
+        lat: @parking.latitude,
+        lng: @parking.longitude
+      }]
   end
 
   def new
     @booking = Booking.new
-    @parking = current_user.cars.last.givings.last.parking
+    @parking = current_user.cars.last.takings.last.parking
+
   end
 
   def create
-    @parking = current_user.cars.last.givings.last.parking
+    @parking = current_user.cars.last.takings.last.parking
     user_entry_datetime = DateTime.strptime(review_params_booking[:available_at], '%Y-%m-%dT%k:%M')
     @booking = Booking.new({ available_at: user_entry_datetime })
     @booking.giver_car = current_user.cars.last
