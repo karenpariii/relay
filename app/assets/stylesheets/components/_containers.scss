@@ -19,11 +19,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url("ground/texture-asphalte4b.png");
+  background-size: cover;
+
+  p {
+    color: white;
+    margin: 0;
+  }
+
 }
 
 .map-search-fields-container{
   display: flex;
   justify-content: space-evenly;
+  background-image: url("ground/texture-asphalte4b.png");
+  background-size: cover;
+  background-position: bottom;
 }
 
 .map-container {
@@ -34,6 +45,8 @@
 .booking-cards-container {
   display: flex;
   flex-direction: column;
+  background-image: url("ground/texture-asphalte4b.png");
+  background-size: cover;
 }
 
 .container-dashboard {
