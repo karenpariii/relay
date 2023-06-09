@@ -9,10 +9,9 @@ require "open-uri"
 
 romaintaker = User.create!(first_name: "romain", last_name: "Caillard", email: "romain@gmail.com", password: "azerty")
 karengiver = User.create!(first_name: "karen", last_name: "Kouassi", email: "karen@gmail.com", password: "azerty")
-magalietaker = User.create!(first_name: "magalie", last_name: "Mares", email: "magalie@gmail.com", password: "gi")
+magalietaker = User.create!(first_name: "magalie", last_name: "Mares", email: "magalie@gmail.com", password: "azerty")
 aligiver = User.create!(first_name: "ali", last_name: "Ouzidhouh", email: "ali@gmail.com", password: "azerty")
 damsogiver = User.create!(first_name: "damso", last_name: "Rappe", email: "damso@gmail.com", password: "azerty")
-
 
 car_romaintaker = Car.create!(car_model: "Renault Twizy", plate: "AA-567-EB", car_color: "Mauve", car_type: "citadine", user: romaintaker)
 car_karengiver = Car.create!(car_model: "Renault Clio", plate: "AA-123-BB", car_color: "Rouge", car_type: "citadine", user: karengiver)
