@@ -1,47 +1,65 @@
-<div class="d-flex justify-content-center align-items-center my-5">
-  <i class="fa-sharp fa-solid fa-car-side me-2" style="color: #141414;"></i>RE<i class="fa-solid fa-arrow-right" style="color: #141414;"></i>LAY
-</div>
+<div class="home-container">
 
-
-<div class = "container">
-  <%= form_with url: bookings_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Adresse" %>
-    <%= text_field_tag :time,
-    params[:time],
-    class: "form-control",
-    placeholder: "Time",
-    type: "time",
-    value: Time.new.strftime('%H:%M')%>
-  <% end %>
-
-  <div style="width: 100%; height: 450px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="header">
+    <i class="fa-sharp fa-solid fa-car-side me-2" style="color: #141414;"></i>RE<i class="fa-solid fa-arrow-right" style="color: #141414;"></i>LAY
   </div>
 
-  <% @parkings.each do |parking| %>
-    <% parking.bookings.each do |booking| %>
-      <div class="card-booking">
-        <% if booking.giver_car.car_type == "citadine" %>
-          <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif booking.giver_car.car_type == "berline" %>
-          <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif booking.giver_car.car_type == "van" %>
-          <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-        <% end %>
-        <div class="card-booking-infos flexbox">
-          <div>
-            <h2><%= booking.available_at %></h2>
-            <p><%= parking.address %></p>
-            <p><strong>Immatriculation</strong><%= booking.giver_car.plate %> <strong>Couleur</strong><%= booking.giver_car.car_color %></p>
-          </div>
-            <div><%= link_to "Se garer", booking_path(booking), data: {turbo_method: :patch}, class: 'button-blue' %></div>
+    <div class="map-search-fields">
+      <%= form_with url: bookings_path, method: :get do %>
+
+        <div class="form-search-field">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Adresse" %>
         </div>
-      </div>
+
+        <div class="form-search-field">
+          <%= text_field_tag :time,
+          params[:time],
+          class: "form-control",
+          placeholder: "Time",
+          type: "time",
+          value: Time.new.strftime('%H:%M')%>
+        </div>
+
+      <% end %>
+    </div>
+
+    <div class="map-container"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
+    <% @parkings.each do |parking| %>
+      <% parking.bookings.each do |booking| %>
+        <div class="matching-profiles-card">
+
+
+
+        </div>
+
+
+
+
+        <div class="card-booking">
+          <% if booking.giver_car.car_type == "citadine" %>
+            <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
+          <% elsif booking.giver_car.car_type == "berline" %>
+            <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
+          <% elsif booking.giver_car.car_type == "van" %>
+            <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
+          <% end %>
+          <div class="card-booking-infos flexbox">
+            <div>
+              <h2><%= booking.available_at %></h2>
+              <p><%= parking.address %></p>
+              <p><strong>Immatriculation</strong><%= booking.giver_car.plate %> <strong>Couleur</strong><%= booking.giver_car.car_color %></p>
+            </div>
+              <div><%= link_to "Se garer", booking_path(booking), data: {turbo_method: :patch}, class: 'button-blue' %></div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
 </div>

@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
                          .where(bookings: { taker_car: nil })
                          .where("bookings.available_at BETWEEN ? AND ?", params[:time] - 10.minutes, params[:time] + 10.minutes)
     else
-      @parkings = Parking.all.joins(:bookings).where(bookings: { taker_car: nil })
+      @parkings = Parking.none
     end
 
     @markers = @parkings.geocoded.map do |parking|
