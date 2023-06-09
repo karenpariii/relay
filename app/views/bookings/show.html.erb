@@ -17,7 +17,10 @@
           <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
         <% end %>
         <div>
-          <h2>Je Relay</h2>
+          <h2>Je Relay
+          <%= link_to "https://google.fr/maps/place/#{@booking.parking.address}", target: "_blank" do %>
+            <i class="fa-brands fa-google"></i>
+          <% end %></h2>
           <h3><%= @booking.giver_car.user.first_name%> <%= @booking.giver_car.user.last_name%></h3>
           <p>Pars dans <%= time_ago_in_words @booking.available_at%></p>
           <p>du <%= @booking.parking.address %></p>
