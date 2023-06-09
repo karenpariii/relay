@@ -1,0 +1,81 @@
+.card-booking {
+  overflow: hidden;
+  height: 50px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.card-booking img {
+  height: 100%;
+  width: 50px;
+  object-fit: cover;
+}
+
+.card-booking h2 {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Laila', sans-serif;
+  margin: 0;
+}
+
+.card-booking p {
+  font-family: 'Laila', sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  opacity: .7;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+.flexbox {
+  display: flex;
+}
+
+.booking-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.booking-card-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-show {
+  overflow: hidden;
+  height: 150px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.card-show img {
+  height: 100%;
+  width: 150px;
+  object-fit: cover;
+}
+
+.card-show h2 {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Laila', sans-serif;
+  margin: 0;
+}
+
+.card-show p {
+  font-family: 'Laila', sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  opacity: .7;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+.flexbox {
+  display: flex;
+}
