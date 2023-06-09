@@ -7,7 +7,7 @@
   <div class="container-booking  mt-1">
     <% if @booking.taker_car == current_user.cars.last %>
       <h2>Je Relay</h2>
-      <div>
+      <div class="d-flex justify-content-between align-items-center">
         <% if @booking.giver_car.car_type == "citadine" %>
           <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
         <% elsif @booking.giver_car.car_type == "berline" %>
@@ -15,19 +15,21 @@
         <% elsif @booking.giver_car.car_type == "van" %>
           <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
         <% end %>
-        <h3><%= @booking.giver_car.user.first_name%> <%= @booking.giver_car.user.last_name%></h3>
-        <p>Pars dans <%= time_ago_in_words @booking.available_at%></p>
-        <p><strong><%= @booking.giver_car.plate%></strong></p>
-        <div class="rounded right">
-          <i class="fa-regular fa-user" style="color: #141414;"></i>
+        <div>
+          <h3><%= @booking.giver_car.user.first_name%> <%= @booking.giver_car.user.last_name%></h3>
+          <p>Pars dans <%= time_ago_in_words @booking.available_at%></p>
+          <p><strong><%= @booking.giver_car.plate%></strong></p>
         </div>
-        <%= link_to "Supprimer", bookings_path, data: {turbo_method: :delete, turbo_confirm: "Vous êtes sûr?"}, class: 'button-pink-big'%>
-    </div>
-
-
-    <% else %>
-      <h2>Mon Relay arrive</h2>
-      <div>
+        <div>
+          <p><%= @booking.giver_car.car_model%></p>
+          <p><%= @booking.giver_car.car_type%></p>
+          <p> <%= @booking.giver_car.car_color%></p>
+          <%= link_to "Supprimer", bookings_path, data: {turbo_method: :delete, turbo_confirm: "Vous êtes sûr?"}, class: 'button-pink-big'%>
+        </div>
+      </div>
+      <% else %>
+        <h2>Mon Relay arrive</h2>
+      <div class="d-flex justify-content-between align-items-center">
         <% if @booking.taker_car.car_type == "citadine" %>
           <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
         <% elsif @booking.taker_car.car_type == "berline" %>
@@ -35,55 +37,17 @@
         <% elsif @booking.taker_car.car_type == "van" %>
           <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
         <% end %>
-        <h3><%= @booking.taker_car.user.first_name%> <%= @booking.taker_car.user.last_name%></h3>
-        <p>Arrive à <%= time_ago_in_words @booking.available_at%></p>
-        <strong><%= @booking.taker_car.plate%></strong>
-        <div class="rounded right">
-          <i class="fa-regular fa-user" style="color: #141414;"></i>
+      </div>
+         <div>
+          <h3><%= @booking.taker_car.user.first_name%> <%= @booking.taker_car.user.last_name%></h3>
+          <p>Arrive à <%= time_ago_in_words @booking.available_at%></p>
+          <strong><%= @booking.taker_car.plate%></strong>
+         </div>
+         <div>
+            <p><strong> <%= @booking.taker_car.car_model%></strong></p>
+            <p><%= @booking.taker_car.car_type%></p>
+            <p><%= @booking.taker_car.car_color%></p>
         </div>
-        <%= link_to "Refuser", bookings_path, class: 'button-pink' %>
-        <%= link_to "Valider", bookings_path, class: 'btn-green'  %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="container-booking mt-5">
-   <% if @booking.taker_car == current_user.cars.last %>
-
-    <h2>Profil</h2>
-       <% if @booking.giver_car.car_type == "citadine" %>
-          <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif @booking.giver_car.car_type == "berline" %>
-          <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif @booking.giver_car.car_type == "van" %>
-          <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-        <% end %>
-    <h3><%= @booking.giver_car.user.first_name%> <%= @booking.giver_car.user.last_name%></h3>
-    <p><strong> <%= @booking.giver_car.plate%></strong></p>
-    <p><%= @booking.giver_car.car_model%></p>
-    <p><%= @booking.giver_car.car_type%></p>
-    <p> <%= @booking.giver_car.car_color%></p>
-
-    <div class="rounded right">
-     <i class="fa-regular fa-user" style="color: #141414;"></i>
-    </div>
-
-    <% else %>
-    <h2>Profil</h2>
-    <% if @booking.taker_car.car_type == "citadine" %>
-          <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif @booking.taker_car.car_type == "berline" %>
-          <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif @booking.taker_car.car_type == "van" %>
-          <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-        <% end %>
-    <h3><%= @booking.taker_car.user.first_name%> <%= @booking.taker_car.user.last_name%></h3>
-    <p><strong> <%= @booking.taker_car.car_model%></strong></p>
-    <p><%= @booking.taker_car.car_type%></p>
-    <p><%= @booking.taker_car.car_color%></p>
-      <div class="rounded right">
-        <i class="fa-regular fa-user" style="color: #141414;"></i>
-      </div>
-    <% end %>
+       <% end %>
   </div>
 </div>
