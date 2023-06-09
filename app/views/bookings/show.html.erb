@@ -8,8 +8,7 @@
 </div>
 <div class="card-show">
    <% if @booking.taker_car == current_user.cars.last %>
-      <h2>Je Relay</h2>
-      <div>
+      <div class="d-flex justify-content-between align-items-center">
         <% if @booking.giver_car.car_type == "citadine" %>
           <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
         <% elsif @booking.giver_car.car_type == "berline" %>
@@ -17,23 +16,21 @@
         <% elsif @booking.giver_car.car_type == "van" %>
           <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
         <% end %>
-        <div class="card-show-infos flexbox">
-          <div>
-            <h3><%= @booking.giver_car.user.first_name%> <%= @booking.giver_car.user.last_name%></h3>
-            <p>Pars dans <%= time_ago_in_words @booking.available_at%></p>
-            <p><strong><%= @booking.giver_car.plate%></strong></p>
-            <p><%= @booking.giver_car.car_model%></p>
-            <p><%= @booking.giver_car.car_type%></p>
-            <p> <%= @booking.giver_car.car_color%></p>
-          </div>
-          <div>
-            <%= link_to "Supprimer", bookings_path, data: {turbo_method: :delete, turbo_confirm: "Vous êtes sûr?"}, class: 'button-pink-big'%>
-          </div>
+        <div>
+          <h2>Je Relay</h2>
+          <h3><%= @booking.giver_car.user.first_name%> <%= @booking.giver_car.user.last_name%></h3>
+          <p>Pars dans <%= time_ago_in_words @booking.available_at%></p>
+          <p><strong><%= @booking.giver_car.plate%></strong></p>
+        </div>
+        <div>
+          <p><%= @booking.giver_car.car_model%></p>
+          <p><%= @booking.giver_car.car_type%></p>
+          <p> <%= @booking.giver_car.car_color%></p>
+          <%= link_to "Supprimer", bookings_path, data: {turbo_method: :delete, turbo_confirm: "Vous êtes sûr?"}, class: 'button-pink-big'%>
         </div>
       </div>
-    <% else %>
-      <h2>Mon Relay arrive</h2>
-      <div>
+      <% else %>
+        <div class="d-flex justify-content-between align-items-center">
         <% if @booking.taker_car.car_type == "citadine" %>
           <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
         <% elsif @booking.taker_car.car_type == "berline" %>
@@ -41,15 +38,18 @@
         <% elsif @booking.taker_car.car_type == "van" %>
           <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
         <% end %>
-        <div class="card-show-infos flexbox">
-          <div>
-            <h3><%= @booking.taker_car.user.first_name%> <%= @booking.taker_car.user.last_name%></h3>
-            <p>Arrive à <%= time_ago_in_words @booking.available_at%></p>
-            <strong><%= @booking.taker_car.plate%></strong>
+      </div>
+         <div>
+         <h2>Mon Relay arrive</h2>
+          <h3><%= @booking.taker_car.user.first_name%> <%= @booking.taker_car.user.last_name%></h3>
+          <p>Arrive à <%= time_ago_in_words @booking.available_at%></p>
+          <strong><%= @booking.taker_car.plate%></strong>
+         </div>
+         <div>
             <p><strong> <%= @booking.taker_car.car_model%></strong></p>
             <p><%= @booking.taker_car.car_type%></p>
             <p><%= @booking.taker_car.car_color%></p>
-          </div>
         </div>
-      </div>
-          <% end%>
+       <% end %>
+  </div>
+</div>
