@@ -1,12 +1,13 @@
-<div class="d-flex justify-content-center align-items-center my-5">
-  <i class="fa-sharp fa-solid fa-car-side me-2" style="color: #141414;"></i>RE<i class="fa-solid fa-arrow-right" style="color: #141414;"></i>LAY
+<div class="d-flex justify-content-center align-items-center my-5" style="color: #ebc041;">
+  <i class="fa-sharp fa-solid fa-car-side me-2" style="color: #ebc041;"></i>RE<i class="fa-solid fa-arrow-right" style="color: #ebc041;"></i>LAY
 </div>
-
-
-<div class="container-dashboard">
-  <div class="container-booking  mt-1">
-    <% if @booking.taker_car == current_user.cars.last %>
-      <h2>Je Relay</h2>
+<div style="width: 100%; height: 450px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+<div class="card-show">
+   <% if @booking.taker_car == current_user.cars.last %>
       <div class="d-flex justify-content-between align-items-center">
         <% if @booking.giver_car.car_type == "citadine" %>
           <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
@@ -16,6 +17,7 @@
           <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
         <% end %>
         <div>
+          <h2>Je Relay</h2>
           <h3><%= @booking.giver_car.user.first_name%> <%= @booking.giver_car.user.last_name%></h3>
           <p>Pars dans <%= time_ago_in_words @booking.available_at%></p>
           <p><strong><%= @booking.giver_car.plate%></strong></p>
@@ -28,8 +30,7 @@
         </div>
       </div>
       <% else %>
-        <h2>Mon Relay arrive</h2>
-      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
         <% if @booking.taker_car.car_type == "citadine" %>
           <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
         <% elsif @booking.taker_car.car_type == "berline" %>
@@ -39,6 +40,7 @@
         <% end %>
       </div>
          <div>
+         <h2>Mon Relay arrive</h2>
           <h3><%= @booking.taker_car.user.first_name%> <%= @booking.taker_car.user.last_name%></h3>
           <p>Arrive à <%= time_ago_in_words @booking.available_at%></p>
           <strong><%= @booking.taker_car.plate%></strong>
