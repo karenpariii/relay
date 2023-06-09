@@ -19,7 +19,9 @@
   </head>
 
   <body>
-    <div class="<% unless controller_name == "bookings" && action_name == "index" %>container<% end %>">
+  
+    <div class="<% unless controller_name == "bookings" && action_name == "index" %>form-container<% end %>">
+
       <%= yield %>
       <%= render "shared/navbar" %>
     </div>
