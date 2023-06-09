@@ -1,4 +1,4 @@
-<div class="home-container">
+<div class="index-container">
 
   <div class="header">
     <i class="fa-sharp fa-solid fa-car-side me-2" style="color: #141414;"></i>RE<i class="fa-solid fa-arrow-right" style="color: #141414;"></i>LAY
@@ -35,29 +35,22 @@
     <% @parkings.each do |parking| %>
       <% parking.bookings.each do |booking| %>
         <div class="matching-profiles-card">
-
-
-
-        </div>
-
-
-
-
-        <div class="card-booking">
-          <% if booking.giver_car.car_type == "citadine" %>
-            <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-          <% elsif booking.giver_car.car_type == "berline" %>
-            <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-          <% elsif booking.giver_car.car_type == "van" %>
-            <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-          <% end %>
-          <div class="card-booking-infos flexbox">
-            <div>
-              <h2><%= booking.available_at %></h2>
-              <p><%= parking.address %></p>
-              <p><strong>Immatriculation</strong><%= booking.giver_car.plate %> <strong>Couleur</strong><%= booking.giver_car.car_color %></p>
+          <div class="card-booking">
+            <% if booking.giver_car.car_type == "citadine" %>
+              <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
+            <% elsif booking.giver_car.car_type == "berline" %>
+              <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
+            <% elsif booking.giver_car.car_type == "van" %>
+              <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
+            <% end %>
+            <div class="card-booking-infos flexbox">
+              <div>
+                <h2><%= booking.available_at %></h2>
+                <p><%= parking.address %></p>
+                <p><strong>Immatriculation</strong><%= booking.giver_car.plate %> <strong>Couleur</strong><%= booking.giver_car.car_color %></p>
+              </div>
+                <div><%= link_to "Se garer", booking_path(booking), data: {turbo_method: :patch}, class: 'button-blue' %></div>
             </div>
-              <div><%= link_to "Se garer", booking_path(booking), data: {turbo_method: :patch}, class: 'button-blue' %></div>
           </div>
         </div>
       <% end %>
