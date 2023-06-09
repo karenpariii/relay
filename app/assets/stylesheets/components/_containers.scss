@@ -9,6 +9,33 @@
   background-size: cover;
 }
 
+.index-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 72px);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-search-fields-container{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.map-container {
+  width: 100%;
+  height: 450px;
+}
+
+.booking-cards-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .container-dashboard {
   align-content: center;
   justify-content: center;

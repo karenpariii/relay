@@ -34,6 +34,16 @@
   display: flex;
 }
 
+.booking-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.booking-card-description {
+  display: flex;
+  flex-direction: column;
+}
+
 .card-show {
   overflow: hidden;
   height: 150px;

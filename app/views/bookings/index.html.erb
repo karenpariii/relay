@@ -1,45 +1,61 @@
-<div class="d-flex justify-content-center align-items-center my-5" style="color: #ebc041;">
-  <i class="fa-sharp fa-solid fa-car-side me-2" style="color: #ebc041;"></i>RE<i class="fa-solid fa-arrow-right" style="color: #ebc041;"></i>LAY
-</div>
+<div class="index-container">
 
+  <div class="header-container py-3">
+    <i class="fa-sharp fa-solid fa-car-side me-2" style="color: #ebc041;"></i>RE<i class="fa-solid fa-arrow-right px-1" style="color: #141414;"></i>LAY
+  </div>
 
-  <%= form_with url: bookings_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Adresse" %>
-    <%= text_field_tag :time,
-    params[:time],
-    class: "form-control",
-    placeholder: "Time",
-    type: "time",
-    value: Time.new.strftime('%H:%M')%>
+  <%= form_with url: bookings_path, method: :get, class: "map-search-fields-container mb-3" do %>
+
+    <div class="map-search-field">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Adresse" %>
+    </div>
+
+    <div class="map-search-field">
+      <%= text_field_tag :time,
+      params[:time],
+      class: "form-control",
+      placeholder: "Time",
+      type: "time",
+      value: Time.new.strftime('%H:%M')%>
+    </div>
+
   <% end %>
 
-  <div style="width: 100%; height: 450px;"
+  <div class="map-container"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-  <% @parkings.each do |parking| %>
-    <% parking.bookings.each do |booking| %>
-      <div class="card-booking">
-        <% if booking.giver_car.car_type == "citadine" %>
-          <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif booking.giver_car.car_type == "berline" %>
-          <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif booking.giver_car.car_type == "van" %>
-          <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-        <% end %>
-        <div class="card-booking-infos flexbox">
-          <div>
-            <h2><%= time_ago_in_words booking.available_at %></h2>
-            <p><%= parking.address %></p>
-            <p><strong>Immatriculation</strong><%= booking.giver_car.plate %> <strong>Couleur</strong><%= booking.giver_car.car_color %></p>
+    <div class="booking-cards-container">
+
+      <% @parkings.each do |parking| %>
+        <% parking.bookings.each do |booking| %>
+          <div class="d-flex flex-column p-3 bg-white rounded mt-2 mx-2">
+            <div class="d-flex align-items-center">
+              <% if booking.giver_car.car_type == "citadine" %>
+                  <%= image_tag("cars/citadine.png", width: 70, height: 70, crop: :fill) %>
+                <% elsif booking.giver_car.car_type == "berline" %>
+                  <%= image_tag("cars/berline.png", width: 70, height: 70, crop: :fill) %>
+                <% elsif booking.giver_car.car_type == "van" %>
+                  <%= image_tag("cars/van.png", width: 70, height: 70, crop: :fill) %>
+                <% end %>
+                <h5 class="ps-3"><%= booking.available_at %></h5>
+            </div>
+            <div class="d-flex align-items-end justify-content-between">
+              <div>
+                <p class="mb-0"><%= parking.address %></p>
+                <p class="mb-0"><strong>Immatriculation</strong><%= booking.giver_car.plate %> <strong>Couleur</strong><%= booking.giver_car.car_color %></p>
+              </div>
+              <%= link_to "Se garer", booking_path(booking), data: {turbo_method: :patch}, class: 'bg-secondary text-white px-2 py-1 rounded text-decoration-none' %>
+            </div>
           </div>
-          <%= link_to "Se garer", booking_path(booking), data: {turbo_method: :patch}, class: 'button-blue' %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+        <% end %>
+      <% end %>
+
+    </div>
+
+</div>

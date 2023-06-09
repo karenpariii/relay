@@ -19,26 +19,11 @@
   </head>
 
   <body>
-    <div class = "form-container">
-      <%= yield %>
+  
+    <div class="<% unless controller_name == "bookings" && action_name == "index" %>form-container<% end %>">
 
-      <nav class="navbar navbar-light bg-light">
-        <%= link_to bookings_path, class: "navbar-style" do %>
-          <i class="fa-sharp fa-solid fa-location-dot navbar-relay"></i>
-        <% end %>
-        <%= link_to new_booking_path, class: "navbar-style" do %>
-          <i class="fa-solid fa-car-side navbar-relay"></i>
-        <% end %>
-        <%= link_to bookings_path, class: "navbar-style" do %>
-          <i class="fa-solid fa-heart navbar-relay"></i>
-        <% end %>
-        <%= link_to bookings_path, class: "navbar-style" do %>
-          <i class="fa-solid fa-message navbar-relay"></i>
-        <% end %>
-        <%= link_to destroy_user_session_path, class: "navbar-style", data: {turbo_method: :delete} do %>
-          <i class="fa-solid fa-user navbar-relay"></i>
-        <% end %>
-      </nav>
+      <%= yield %>
+      <%= render "shared/navbar" %>
     </div>
   </body>
 </html>
