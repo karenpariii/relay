@@ -13,6 +13,8 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 72px);
+  background-image: url("ground/texture-asphalte4b.png");
+  background-size: cover;
 }
 
 .header-container {
@@ -38,8 +40,10 @@
 }
 
 .map-container {
-  width: 100%;
-  height: 450px;
+  width: auto;
+  height: calc(100vh - 72px - 54px - 40px);
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .booking-cards-container {
