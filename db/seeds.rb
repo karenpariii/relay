@@ -9,7 +9,7 @@ require "open-uri"
 
 romaintaker = User.create!(first_name: "romain", last_name: "Caillard", email: "romain@gmail.com", password: "azerty")
 karengiver = User.create!(first_name: "karen", last_name: "Kouassi", email: "karen@gmail.com", password: "azerty")
-magalietaker = User.create!(first_name: "magalie", last_name: "Mares", email: "magalie@gmail.com", password: "azerty")
+magalietaker = User.create!(first_name: "magalie", last_name: "Mares", email: "magalie@gmail.com", password: "gi")
 aligiver = User.create!(first_name: "ali", last_name: "Ouzidhouh", email: "ali@gmail.com", password: "azerty")
 damsogiver = User.create!(first_name: "damso", last_name: "Rappe", email: "damso@gmail.com", password: "azerty")
 
@@ -29,11 +29,11 @@ parking_5 = Parking.create!(address: "110 Rue Amelot, 75011 Paris", latitude: "4
 parking_6 = Parking.create!(address: "49 Rue du Chemin Vert, 75011 Paris", latitude: "48.85964004829994", longitude: "2.375311098558855")
 
 
-booking_1 = Booking.create!(available_at: "20230609152000", parking: parking_1, giver_car: car_karengiver )
-booking_2 = Booking.create!(available_at: "20230609151000", parking: parking_2, giver_car: car_aligiver )
-booking_3 = Booking.create!(available_at: "20230609152500", parking: parking_3, giver_car: car_damsogiver, taker_car: car_romaintaker)
-booking_4 = Booking.create!(available_at: "20230609153000", parking: parking_4, giver_car: car_karengiver )
-booking_5 = Booking.create!(available_at: "20230609153500", parking: parking_5, giver_car: car_aligiver )
-booking_6 = Booking.create!(available_at: "20230609154000", parking: parking_6, giver_car: car_damsogiver, taker_car: car_romaintaker )
+booking_1 = Booking.create!(available_at: 15.minutes.from_now, parking: parking_1, giver_car: car_karengiver )
+booking_2 = Booking.create!(available_at: 20.minutes.from_now, parking: parking_2, giver_car: car_aligiver )
+booking_3 = Booking.create!(available_at: 25.minutes.from_now, parking: parking_3, giver_car: car_damsogiver)
+booking_4 = Booking.create!(available_at: 30.minutes.from_now, parking: parking_4, giver_car: car_karengiver )
+booking_5 = Booking.create!(available_at: 35.minutes.from_now, parking: parking_5, giver_car: car_aligiver )
+booking_6 = Booking.create!(available_at: 40.minutes.from_now, parking: parking_6, giver_car: car_damsogiver)
 
 puts "seeds upload all"

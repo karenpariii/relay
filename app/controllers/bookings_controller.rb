@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @parking = current_user.cars.last&.takings&.last&.parking
+    @parking = current_user.cars.last&.takings&.order(available_at: :desc)&.first&.parking
   end
 
   def create
