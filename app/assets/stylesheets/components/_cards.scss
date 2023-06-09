@@ -33,3 +33,22 @@
 .flexbox {
   display: flex;
 }
+
+
+.booking-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.booking-card-img {
+
+}
+
+.booking-card-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-card-validation-btn {
+  
+}
