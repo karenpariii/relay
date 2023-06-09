@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @parking = current_user.cars.last.givings.last.parking
+    @parking = current_user.cars.last&.takings&.last&.parking
   end
 
   def create
