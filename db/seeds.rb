@@ -9,7 +9,7 @@ require "open-uri"
 
 romaintaker = User.create!(first_name: "romain", last_name: "Caillard", email: "romain@gmail.com", password: "azerty")
 karengiver = User.create!(first_name: "karen", last_name: "Kouassi", email: "karen@gmail.com", password: "azerty")
-magalietaker = User.create!(first_name: "magalie", last_name: "Mares", email: "magalie@gmail.com", password: "azerty")
+magalietaker = User.create!(first_name: "magalie", last_name: "Mares", email: "magalie@gmail.com", password: "gi")
 aligiver = User.create!(first_name: "ali", last_name: "Ouzidhouh", email: "ali@gmail.com", password: "azerty")
 damsogiver = User.create!(first_name: "damso", last_name: "Rappe", email: "damso@gmail.com", password: "azerty")
 
