@@ -39,11 +39,27 @@
   flex-direction: row;
   background-image: url("ground/texture-white-stripe.png");
   background-size: cover;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
 }
 
-.booking-card-description {
+.bk-card-infos {
   display: flex;
   flex-direction: column;
+}
+
+.bk-card-time {
+  font-size: 20px;
+}
+
+.bk-card-address {
+  font-size: 12px;
+}
+
+.bk-card-btn {
+  display: flex;
 }
 
 .card-show {
