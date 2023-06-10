@@ -32,6 +32,7 @@
 
       <% @parkings.each do |parking| %>
         <% parking.bookings.each do |booking| %>
+
           <div class="booking-card">
 
             <div class="bk-card-img">
@@ -49,7 +50,9 @@
                 <span class="bk-card-address"><%= parking.address %></span>
             </div>
               <%= link_to "Go !", booking_path(booking), data: {turbo_method: :patch}, class:"btn-flat" %>
+              
           </div>
+
         <% end %>
       <% end %>
 
