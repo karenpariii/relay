@@ -1,7 +1,7 @@
 .login-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh);
+  height: 100vh;
   // flex-wrap: nowrap;
   // align-content: center;
   justify-content: center;
@@ -61,7 +61,7 @@
 .booking-cards-container {
   display: flex;
   flex-direction: column;
-  background-image: url("ground/texture-white-stripe.png");
+  background-image: url("ground/texture-asphalte4b.png");
   background-size: cover;
 }
 
