@@ -1,3 +1,14 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh);
+  // flex-wrap: nowrap;
+  // align-content: center;
+  justify-content: center;
+  background-image: url("ground/texture-asphalte4b.png");
+  background-size: cover;
+}
+
 .base-container {
   display: flex;
   flex-direction: column;
