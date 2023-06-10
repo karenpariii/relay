@@ -1,4 +1,4 @@
-<div class="base-container">
+<div class="login-container">
 
   <div class="form-login">
 
@@ -14,7 +14,6 @@
         <%= f.input :password, label: "Mot de passe", placeholder: "......",
                     required: false,
                     input_html: { autocomplete: "current-password" } %>
-        <%= f.input :remember_me, label: "se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
       </div>
 
       <div class="form-actions">
