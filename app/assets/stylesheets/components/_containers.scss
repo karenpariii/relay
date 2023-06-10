@@ -1,9 +1,9 @@
 .base-container {
   display: flex;
-  height: calc(100vh - 72px);
-  flex-wrap: nowrap;
   flex-direction: column;
-  align-content: center;
+  height: calc(100vh - 72px - 46px);
+  // flex-wrap: nowrap;
+  // align-content: center;
   justify-content: center;
   background-image: url("ground/texture-asphalte4b.png");
   background-size: cover;
@@ -12,8 +12,9 @@
 .index-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 72px - 40px);
-  background-image: url("ground/texture-asphalte4b.png");
+  height: calc(100vh - 72px - 46px);
+  // background-image: url("ground/texture-asphalte4b.png");
+  background-color: lightpink;
   background-size: cover;
 }
 
@@ -41,7 +42,7 @@
 
 .map-container {
   width: auto;
-  height: calc(100vh - 72px - 54px - 40px);
+  height: calc(100vh - 72px - 54px - 46px);
   // margin-left: 0.5rem;
   // margin-right: 0.5rem;
 }
@@ -49,7 +50,7 @@
 .booking-cards-container {
   display: flex;
   flex-direction: column;
-  background-image: url("ground/texture-asphalte4b.png");
+  background-image: url("ground/texture-white-stripe.png");
   background-size: cover;
 }
 
