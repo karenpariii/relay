@@ -8,35 +8,55 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-  <div class="show-infos-container">
+  <div class="show-card-container">
     <% if @booking.taker_car == current_user.cars.last %>
 
-      <div class="d-flex justify-content-between align-items-center">
-        <% if @booking.giver_car.car_type == "citadine" %>
-          <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif @booking.giver_car.car_type == "berline" %>
-          <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif @booking.giver_car.car_type == "van" %>
-          <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-        <% end %>
 
-        <div>
-          <h2>Je Relay
+      <div class="show-card-first-box">
+        <h3><%=  @booking.giver_car.user.first_name%></h3>
+        <p>libère sa place dans</p>
+        <span><%= time_ago_in_words @booking.available_at%></span>
+      </div>
+
+      <div class="show-card-second-box">
+        <h3><%= @booking.parking.address %></h3>
+
+        <div class="itinerary-link">
           <%= link_to "https://google.fr/maps/place/#{@booking.parking.address}", target: "_blank" do %>
             <i class="fa-brands fa-google"></i>
           <% end %></h2>
-          <h3><%= @booking.giver_car.user.first_name%> <%= @booking.giver_car.user.last_name%></h3>
-          <p>Pars dans <%= time_ago_in_words @booking.available_at%></p>
-          <p>du <%= @booking.parking.address %></p>
+        </div>
+      </div>
+
+      <div class="show-card-third-box">
+
+        <div class="show-card-car-infos_1">
+          <div class=show-card-img>
+            <% if @booking.giver_car.car_type == "citadine" %>
+              <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
+            <% elsif @booking.giver_car.car_type == "berline" %>
+              <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
+            <% elsif @booking.giver_car.car_type == "van" %>
+              <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
+            <% end %>
+          </div>
+          <p><%= @booking.giver_car.car_type%></p>
+        </div>
+
+        <div class="show-card-car-infos_2">
+          <p><%= @booking.giver_car.car_model%></p>
+          <p> <%= @booking.giver_car.car_color%></p>
           <p><strong><%= @booking.giver_car.plate%></strong></p>
         </div>
 
-        <div>
-          <p><%= @booking.giver_car.car_model%></p>
-          <p><%= @booking.giver_car.car_type%></p>
-          <p> <%= @booking.giver_car.car_color%></p>
-          <%= link_to "Je suis garé", bookings_path, class: 'button-blue-big'%>
+        <div class="show-card-car-infos_3">
+
         </div>
+
+      </div>
+
+      <div class="show-validation-button">
+        <%= link_to "JE RESERVE", bookings_path, class: "validation-btn-txt"%>
       </div>
 
     <% else %>
@@ -62,7 +82,9 @@
           <p><%= @booking.taker_car.car_color%></p>
       </div>
     <% end %>
+
   </div>
+
 </div>
 
 <%= render "shared/navbar" %>

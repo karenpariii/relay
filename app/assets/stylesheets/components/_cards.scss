@@ -62,37 +62,59 @@
   display: flex;
 }
 
-.card-show {
-  overflow: hidden;
-  height: 150px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+.show-card-first-box {
   display: flex;
-  align-items: center;
-  margin-bottom: 2px;
+  justify-content: space-between;
+  padding: 8px;
+  margin: 0.5rem;
+  background-image: url("ground/texture-white-stripe.png");
+  background-size: cover;
 }
 
-.card-show img {
-  height: 100%;
-  width: 150px;
-  object-fit: cover;
+.show-card-second-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  margin: 0.5rem;
+  background-image: url("ground/texture-white-stripe.png");
+  background-size: cover;
 }
 
-.card-show h2 {
-  font-size: 16px;
-  font-weight: bold;
-  font-family: 'Laila', sans-serif;
-  margin: 0;
+.show-card-third-box {
+  display: flex;
+  padding: 8px;
+  margin: 0.5rem;
+  background-image: url("ground/texture-white-stripe.png");
+  background-size: cover;
+
+  .show-card-car-infos_1{
+    display: flex;
+    flex-direction: column;
+
+    .img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  .show-card-car-infos_2{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .show-card-car-infos_3{
+    display: flex;
+    flex-direction: column;
+
+
+  }
 }
 
-.card-show p {
-  font-family: 'Laila', sans-serif;
-  font-size: 12px;
-  line-height: 1;
-  opacity: .7;
-  margin-bottom: 2px;
-  margin-top: 2px;
-}
+// .show-card-img {
+//   height: 100%;
+//   width: 150px;
+//   object-fit: cover;
+// }
 
 .flexbox {
   display: flex;
