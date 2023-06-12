@@ -66,6 +66,10 @@
   display: flex;
 }
 
+.parking-address {
+  font-size: small;
+}
+
 .show-card-first-box {
   display: flex;
   justify-content: space-between;
@@ -73,6 +77,7 @@
   margin: 0.5rem;
   background-image: url("ground/texture-white-stripe.png");
   background-size: cover;
+  border-radius: 5px;
 }
 
 .show-card-second-box {
@@ -82,6 +87,8 @@
   margin: 0.5rem;
   background-image: url("ground/texture-white-stripe.png");
   background-size: cover;
+  border-radius: 5px;
+
 }
 
 .show-card-third-box {
@@ -90,26 +97,49 @@
   margin: 0.5rem;
   background-image: url("ground/texture-white-stripe.png");
   background-size: cover;
+  border-radius: 5px;
+  justify-content: center;
+}
 
-  .show-card-car-infos_1{
+.show-card-fourth-box {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 8px;
+  margin: 0.5rem;
+
+  background-image: url("ground/texture-white-stripe.png");
+  background-size: cover;
+
+  border-radius: 5px;
+
+
+  .show-card-car-infos-1{
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    .img {
-      width: 100px;
-      height: 100px;
-    }
+    font-size: large;
+    // border: 1px solid black;
   }
 
-  .show-card-car-infos_2{
+  .show-card-car-infos-2{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    font-size: large;
+    // border: 1px solid black;
+
   }
 
-  .show-card-car-infos_3{
+  .show-card-car-infos-3{
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
+    // border: 1px solid black;
 
   }
 }

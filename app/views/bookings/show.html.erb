@@ -13,47 +13,22 @@
 
 
       <div class="show-card-first-box">
-        <h3><%=  @booking.giver_car.user.first_name%></h3>
-        <p>libère sa place dans</p>
-        <span><%= time_ago_in_words @booking.available_at%></span>
+        <span class="username"><%=  @booking.giver_car.user.first_name%></span>
+        <span class="text">libère sa place dans </span>
+        <span class="countdown"><%= time_ago_in_words @booking.available_at%></span>
       </div>
 
       <div class="show-card-second-box">
-        <h3><%= @booking.parking.address %></h3>
-
-        <div class="itinerary-link">
-          <%= link_to "https://google.fr/maps/place/#{@booking.parking.address}", target: "_blank" do %>
-            <i class="fa-brands fa-google"></i>
-          <% end %></h2>
-        </div>
+        <span class="parking-address"><%= @booking.parking.address %></span>
       </div>
 
       <div class="show-card-third-box">
-
-        <div class="show-card-car-infos_1">
-          <div class=show-card-img>
-            <% if @booking.giver_car.car_type == "citadine" %>
-              <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-            <% elsif @booking.giver_car.car_type == "berline" %>
-              <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-            <% elsif @booking.giver_car.car_type == "van" %>
-              <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-            <% end %>
-          </div>
-          <p><%= @booking.giver_car.car_type%></p>
-        </div>
-
-        <div class="show-card-car-infos_2">
-          <p><%= @booking.giver_car.car_model%></p>
-          <p> <%= @booking.giver_car.car_color%></p>
-          <p><strong><%= @booking.giver_car.plate%></strong></p>
-        </div>
-
-        <div class="show-card-car-infos_3">
-
-        </div>
-
+          <%= link_to "https://google.fr/maps/place/#{@booking.parking.address}", target: "_blank" do %>
+            <i class="fa-brands fa-google"></i>
+          <% end %></h2>
       </div>
+
+
 
       <div class="show-validation-button">
         <%= link_to "RESERVER", bookings_path, class: "validation-btn-txt"%>
