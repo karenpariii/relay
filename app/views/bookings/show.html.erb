@@ -2,7 +2,7 @@
 
 <div class="base-container">
 
-  <div style="map-container"
+  <div class="map-container-show"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -35,7 +35,9 @@
           <p><%= @booking.giver_car.car_model%></p>
           <p><%= @booking.giver_car.car_type%></p>
           <p> <%= @booking.giver_car.car_color%></p>
-          <%= link_to "Je suis garée", bookings_path, class: 'button-blue-big'%>
+          
+          <%= link_to "Je suis garé", bookings_path, class: 'button-blue-big'%>
+
         </div>
       </div>
     <% elsif @booking.giver_car == current_user.cars.last %>
@@ -50,7 +52,7 @@
       </div>
 
       <div>
-      <h2>Mon Relay arrive</h2>
+        <h2>Mon Relay arrive</h2>
         <h3><%= @booking.taker_car.user.first_name%> <%= @booking.taker_car.user.last_name%></h3>
         <p>Arrive à <%= time_ago_in_words @booking.available_at%></p>
         <strong><%= @booking.taker_car.plate%></strong>
@@ -88,8 +90,6 @@
 
 
     <% end %>
-
-    </div>
   </div>
 </div>
 
