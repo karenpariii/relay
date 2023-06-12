@@ -2,7 +2,7 @@
 
 <div class="base-container">
 
-  <div style="map-container"
+  <div class="map-container-show"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -51,7 +51,7 @@
       </div>
 
       <div>
-      <h2>Mon Relay arrive</h2>
+        <h2>Mon Relay arrive</h2>
         <h3><%= @booking.taker_car.user.first_name%> <%= @booking.taker_car.user.last_name%></h3>
         <p>Arrive à <%= time_ago_in_words @booking.available_at%></p>
         <strong><%= @booking.taker_car.plate%></strong>
@@ -62,8 +62,6 @@
           <p><%= @booking.taker_car.car_color%></p>
       </div>
     <% end %>
-
-    </div>
   </div>
 </div>
 

@@ -63,6 +63,11 @@
   // margin-right: 0.5rem;
 }
 
+.map-container-show {
+  width: auto;
+  height: calc(100vh - 72px - 46px);
+}
+
 .booking-cards-container {
   display: flex;
   flex-direction: column;
