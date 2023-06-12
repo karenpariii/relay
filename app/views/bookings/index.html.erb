@@ -49,8 +49,8 @@
                 <span class="bk-card-time"><%= time_ago_in_words booking.available_at %></span>
                 <span class="bk-card-address"><%= parking.address %></span>
             </div>
-              <%= link_to "Go !", booking_path(booking), data: {turbo_method: :patch}, class:"btn-flat" %>
-              
+              <%= link_to "Go !", booking_path(booking), class:"btn-flat" %>
+
           </div>
 
         <% end %>
