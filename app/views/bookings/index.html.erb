@@ -20,6 +20,12 @@
       value: Time.current.strftime('%H:%M')%>
     </div>
 
+    <div class="map-search-field" >
+    <button> Go</button>
+     <%= link_to "Aller !", bookings_path, class:"btn-flat" %>
+      <%# <%= submit_tag "Go !", bookings_path(booking), class:"btn-flat" %>
+    </div>
+
   <% end %>
 
 <div class="map">

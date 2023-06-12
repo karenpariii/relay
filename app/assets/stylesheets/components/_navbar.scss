@@ -3,7 +3,7 @@
   // height: 50px;
   background-image: url("ground/texture-asphalte4b.png");
   background-size: cover;
-  position: fixed;
+  position: fixed !important;
 }
 .navbar-relay {
 margin: 20px;
