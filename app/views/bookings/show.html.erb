@@ -1,4 +1,6 @@
+
 <%= render "shared/header" %>
+
 
 <div class="base-container">
 
@@ -35,7 +37,7 @@
           <p><%= @booking.giver_car.car_model%></p>
           <p><%= @booking.giver_car.car_type%></p>
           <p> <%= @booking.giver_car.car_color%></p>
-          
+
           <%= link_to "Je suis garé", bookings_path, class: 'button-blue-big'%>
 
         </div>
@@ -94,8 +96,3 @@
 </div>
 
 <%= render "shared/navbar" %>
-
-<!-- app/views/restaurants/show.html.erb -->
-<% content_for :meta_title, "#{@booking.name} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_description, @booking.description %>
-<% content_for :meta_image, cl_image_path(@booking.photo.key) if @booking.photo.attached? %>

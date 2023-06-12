@@ -16,9 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Monomaniac+One&display=swap" rel="stylesheet">
 
-    <head>
-      <%= favicon_link_tag "favicon.png", rel: "icon", type: "image/png" %>
-    </head>
+    <%= favicon_link_tag "favicon.png", rel: "icon", type: "image/png" %>
+
 
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
@@ -34,13 +33,15 @@
       <meta name="apple-mobile-web-app-capable" content="yes">
       <meta name="mobile-web-app-capable" content="yes">
 
-      <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+
+    <%= render 'shared/ios_pwa_links' %>
 
   </head>
 
   <body>
 
-      <%= yield %>
+    <%= yield %>
 
   </body>
 </html>
