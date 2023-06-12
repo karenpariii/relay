@@ -46,11 +46,15 @@
             </div>
 
             <div class="bk-card-infos">
+                <span class="bk-card-address">Libre dans </span>
                 <span class="bk-card-time"><%= time_ago_in_words booking.available_at %></span>
                 <span class="bk-card-address"><%= parking.address %></span>
             </div>
+
+            <div class="bk-card-go-btn">
               <%= link_to "Go !", booking_path(booking), data: {turbo_method: :patch}, class:"btn-flat" %>
-              
+            </div>
+
           </div>
 
         <% end %>
