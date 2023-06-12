@@ -1,0 +1,36 @@
+<%= render "shared/header" %>
+
+<div class="base-container">
+  <div class="show-infos-container">
+    <h2>Tous mes relays</h2>
+    <% @bookings.each do |booking| %>
+      <div class="d-flex justify-content-between align-items-center">
+        <% if booking.giver_car.car_type == "citadine" %>
+          <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
+        <% elsif booking.giver_car.car_type == "berline" %>
+          <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
+        <% elsif booking.giver_car.car_type == "van" %>
+          <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
+        <% end %>
+
+        <div>
+          <h3><%= booking.giver_car.user.first_name%> <%= booking.giver_car.user.last_name%></h3>
+          <p>Le relay s'est passé <%= time_ago_in_words booking.available_at%></p>
+          <p>à l'adresse <%= booking.parking.address %></p>
+          <p><strong><%= booking.giver_car.plate%></strong></p>
+        </div>
+
+        <div>
+          <p><%= booking.giver_car.car_model%></p>
+          <p><%= booking.giver_car.car_type%></p>
+          <p> <%= booking.giver_car.car_color%></p>
+
+          <%= link_to "Voir les détails", booking_path(booking), class: 'button-blue-big'%>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/navbar" %>

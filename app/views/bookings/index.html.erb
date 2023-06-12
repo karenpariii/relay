@@ -31,8 +31,8 @@
     <div class="booking-cards-container">
 
       <% @parkings.each do |parking| %>
-        <% parking.bookings.each do |booking| %>
-
+        <%# parking.bookings.each do |booking| %>
+        <% booking = parking.bookings.last%>
           <div class="booking-card">
 
             <div class="bk-card-img">
@@ -53,7 +53,7 @@
 
           </div>
 
-        <% end %>
+        <%# end %>
       <% end %>
 
     </div>
