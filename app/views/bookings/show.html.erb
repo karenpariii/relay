@@ -94,3 +94,8 @@
 </div>
 
 <%= render "shared/navbar" %>
+
+<!-- app/views/restaurants/show.html.erb -->
+<% content_for :meta_title, "#{@booking.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @booking.description %>
+<% content_for :meta_image, cl_image_path(@booking.photo.key) if @booking.photo.attached? %>
