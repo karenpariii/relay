@@ -23,7 +23,7 @@
         <div>
           <h2>Je Relay
           <%= link_to "https://google.fr/maps/place/#{@booking.parking.address}", target: "_blank" do %>
-            <i class="fa-brands fa-google"></i>
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
           <% end %></h2>
           <h3><%= @booking.giver_car.user.first_name%> <%= @booking.giver_car.user.last_name%></h3>
           <p>Pars dans <%= time_ago_in_words @booking.available_at%></p>
@@ -35,11 +35,12 @@
           <p><%= @booking.giver_car.car_model%></p>
           <p><%= @booking.giver_car.car_type%></p>
           <p> <%= @booking.giver_car.car_color%></p>
+          
           <%= link_to "Je suis garé", bookings_path, class: 'button-blue-big'%>
+
         </div>
       </div>
-
-    <% else %>
+    <% elsif @booking.giver_car == current_user.cars.last %>
       <div class="d-flex justify-content-between align-items-center">
         <% if @booking.taker_car.car_type == "citadine" %>
           <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
@@ -61,6 +62,33 @@
           <p><%= @booking.taker_car.car_type%></p>
           <p><%= @booking.taker_car.car_color%></p>
       </div>
+       <% else %>
+      <div class="d-flex justify-content-between align-items-center">
+        <% if @booking.giver_car.car_type == "citadine" %>
+          <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
+        <% elsif @booking.giver_car.car_type == "berline" %>
+          <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
+        <% elsif @booking.giver_car.car_type == "van" %>
+          <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
+        <% end %>
+
+        <div>
+          <h2>Je Relay</h2>
+          <h3><%= @booking.giver_car.user.first_name%> <%= @booking.giver_car.user.last_name%></h3>
+          <p>Pars dans <%= time_ago_in_words @booking.available_at%></p>
+          <p>du <%= @booking.parking.address %></p>
+          <p><strong><%= @booking.giver_car.plate%></strong></p>
+        </div>
+
+        <div>
+          <p><%= @booking.giver_car.car_model%></p>
+          <p><%= @booking.giver_car.car_type%></p>
+          <p> <%= @booking.giver_car.car_color%></p>
+          <%= link_to "Réserver", booking_path, data: {turbo_method: :patch}, class: 'button-blue-big'%>
+        </div>
+      </div>
+
+
     <% end %>
   </div>
 </div>
