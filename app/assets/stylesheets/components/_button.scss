@@ -1,9 +1,18 @@
-.show-validation-button {
+.show-validation-button-border {
   background-image: url("ground/texture_stripe_yellow.png");
+  background-size: cover;
+
   margin: 0.5rem;
   padding: 8px;
-  border-radius: 4px;
-  background-size: cover;
+  border-radius: 2px;
+
+}
+
+.show-validation-button {
+  background-color: rgba(242,209,0,0.6);
+  border-radius: 2px;
+
+
   text-decoration: none;
   text-align: center;
   .validation-btn-txt {
