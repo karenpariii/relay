@@ -1,14 +1,22 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar">
+
   <%= link_to bookings_path, class: "navbar-style" do %>
-    <i class="fa-sharp fa-solid fa-location-dot navbar-relay" style="color: #ffffff"></i>
+    <div class="navbar-round-btn">
+      <i class="fa-sharp fa-solid fa-house" style="color: #000000;"></i>
+    </div>
   <% end %>
+
   <%= link_to new_booking_path, class: "navbar-style" do %>
-    <i class="fa-solid fa-car-side navbar-relay" style="color: #ffffff"></i>
+    <div class="navbar-round-btn">
+      <i class="fa-solid fa-car-side" style="color: #000000;"></i>
+    </div>
   <% end %>
-  <%= link_to dashboard_path, class: "navbar-style" do %>
-    <i class="fa-solid fa-heart navbar-relay" style="color: #ffffff"></i>
-  <% end %>
+
+
   <%= link_to destroy_user_session_path, class: "navbar-style", data: {turbo_method: :delete} do %>
-    <i class="fa-solid fa-user navbar-relay" style="color: #ffffff"></i>
+    <div class="navbar-round-btn">
+      <i class="fa-solid fa-user" style="color: #000000;"></i>
+    </div>
   <% end %>
+
 </nav>
