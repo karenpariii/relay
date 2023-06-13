@@ -1,7 +1,21 @@
+.card-text {
+
+}
+
+.card-important {
+  border: 2px solid black;
+  padding: 5px;
+}
+
+.countdown {
+  border: 2px solid black;
+  padding: 10px;
+}
+
 .card-booking {
   overflow: hidden;
   height: 50px;
-  background: white;
+  background-color: rgba(238, 238, 238, 0.7);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -34,13 +48,6 @@
   display: flex;
 }
 
-.card-border-layer{
-  background-image: url("ground/texture-white-stripe.png");
-  background-size: cover;
-  // margin: 5px 0;
-  padding: 10px;
-}
-
 .booking-card {
   display: flex;
   flex-direction: row;
@@ -48,7 +55,7 @@
   justify-content: space-between;
   align-items: center;
 
-  background: white;
+  background-color: rgba(238, 238, 238, 0.7);
   border-radius: 4px;
 }
 
@@ -81,40 +88,67 @@
   font-size: small;
 }
 
+.show-card-border-layer{
+  background-image: url("ground/texture-white-stripe.png");
+  background-size: cover;
+  padding: 15px;
+}
+
 .show-card-first-box {
   display: flex;
+  
+  align-items: center;
   justify-content: space-between;
-  padding: 8px;
-  margin: 0.5rem;
-  // background-image: url("ground/texture-white-stripe.png");
-  // background-size: cover;
-  // border-radius: 5px;
-  background: white;
+
+  background-color: rgba(238, 238, 238, 0.7);
+  border-radius: 4px;
+}
+
+.show-card-first-box-b {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+
+  background-color: rgba(238, 238, 238, 0.7);
   border-radius: 4px;
 }
 
 .show-card-second-box {
   display: flex;
-  justify-content: space-between;
-  padding: 8px;
-  margin: 0.5rem;
-  // background-image: url("ground/texture-white-stripe.png");
-  // background-size: cover;
-  // border-radius: 5px;
-  background: white;
-  border-radius: 4px;
 
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: rgba(238, 238, 238, 0.7);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.show-card-second-box-b {
+  display: flex;
+
+  justify-content: center;
+
+  background-color: rgba(238, 238, 238, 0.7);
+  border-radius: 4px;
+  font-size: 16px;
 }
 
 .show-card-third-box {
   display: flex;
-  padding: 8px;
-  margin: 0.5rem;
-  // background-image: url("ground/texture-white-stripe.png");
-  // background-size: cover;
-  // border-radius: 5px;
+
   justify-content: space-around;
-  background: white;
+  background-color: rgba(238, 238, 238, 0.7);
+  border-radius: 4px;
+}
+
+.show-card-third-box-b {
+  display: flex;
+
+  justify-content: center;
+  background-color: rgba(238, 238, 238, 0.7);
   border-radius: 4px;
 }
 
@@ -122,10 +156,8 @@
   display: flex;
   justify-content: space-between;
 
-  padding: 8px;
-  margin: 0.5rem;
 
-  background: white;
+  background-color: rgba(238, 238, 238, 0.7);
   border-radius: 4px;
 
 
