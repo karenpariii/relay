@@ -82,6 +82,7 @@
 
     <% elsif @booking.giver_car == current_user.cars.last %>
       <%= render "show_giver", booking: @booking %>
+      
     <% else %>
       <div class="show-card-border-layer">
         <div class="show-card-first-box">
