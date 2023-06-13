@@ -81,34 +81,7 @@
       </div>
 
     <% elsif @booking.giver_car == current_user.cars.last %>
-      <div>
-        <% if @booking.taker_car.present? %>
-          <div class="d-flex justify-content-between align-items-center">
-            <% if @booking.taker_car.car_type == "citadine" %>
-              <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-            <% elsif @booking.taker_car.car_type == "berline" %>
-              <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-            <% elsif @booking.taker_car.car_type == "van" %>
-              <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-            <% end %>
-          </div>
-          <h2>Mon Relay arrive</h2>
-          <h3><%= @booking.taker_car.user.first_name%> <%= @booking.taker_car.user.last_name%></h3>
-          <p>Arrive à <%= time_ago_in_words @booking.available_at%></p>
-          <strong ><%= @booking.taker_car.plate%></strong>
-          <div>
-            <p><strong> <%= @booking.taker_car.car_model%></strong></p>
-            <p><%= @booking.taker_car.car_type%></p>
-            <p><%= @booking.taker_car.car_color%></p>
-          </div>
-        <% else %>
-          <h2> On cherche ton Relay! </h2>
-          <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
-          </div>
-        <% end %>
-      </div>
-
+      <%= render "show_giver", booking: @booking %>
     <% else %>
       <div class="show-card-border-layer">
         <div class="show-card-first-box">
