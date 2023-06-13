@@ -49,7 +49,7 @@
 
           <div class="show-card-car-infos-1">
 
-            <div class=show-card-img>
+            <div class="show-card-img">
               <% if @booking.giver_car.car_type == "citadine" %>
                 <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
               <% elsif @booking.giver_car.car_type == "berline" %>
@@ -82,7 +82,7 @@
 
     <% elsif @booking.giver_car == current_user.cars.last %>
       <%= render "show_giver", booking: @booking %>
-      
+
     <% else %>
       <div class="show-card-border-layer">
         <div class="show-card-first-box">
@@ -110,7 +110,7 @@
         <div class="show-card-fourth-box">
 
           <div class="show-card-car-infos-1">
-            <div class=show-card-img>
+            <div class="show-card-img">
               <% if @booking.giver_car.car_type == "citadine" %>
                 <%= image_tag("cars/citadine.png", width: 70, height: 70, crop: :fill) %>
               <% elsif @booking.giver_car.car_type == "berline" %>
