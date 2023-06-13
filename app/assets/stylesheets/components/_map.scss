@@ -1,10 +1,65 @@
-.mapboxgl-ctrl-geocoder {
-  border-radius: 20px !important;
-  display: flex !important;
-  text-align: center !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin: 20px;
+// .mapboxgl-ctrl-geocoder {
+//   border-radius: 20px !important;
+//   display: flex !important;
+//   text-align: center !important;
+//   align-items: center !important;
+//   justify-content: center !important;
+//   // position: sticky !important;
+//   // height: calc(100vh - 200px);
+//   margin: 20px;
+// }
+
+
+.mapboxgl-canvas-container {
+  // height:300px;
+}
+
+.mapboxgl-canvas{
+  // height:300px !important;
+}
+
+.map {
+  height: calc(100vh - 72px - 54px - 46px - 66px - 66px - 66px);
+  // position: fixed;
+  top: calc(54px + 46px);
+  // height: 300px;
+  // width: auto;
+  width: 100vw;
+}
+
+.map-search-fields-container{
+  display: flex;
+  justify-content: space-evenly;
+  background-image: url("ground/texture-asphalte4b.png");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.map-container {
+  width: 100vw;
+  // height: 300px;
+  height: calc(100vh - 72px - 54px - 46px - 66px - 66px - 66px);
+  // margin-left: 0.5rem;
+  // margin-right: 0.5rem;
+}
+
+.map-container-show {
+  width: auto;
+  height: calc(100vh - 72px - 46px);
+}
+
+.marker {
+  width: 20px;
+  height: 20px;
+  background-color: green;
+  border-radius: 50%;
+}
+
+.default-marker {
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  border-radius: 50%;
 }
 
 .custom-marker {

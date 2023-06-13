@@ -36,7 +36,8 @@ export default class extends Controller {
               console.log("Position OK")
             },
           );
-      }
+        }
+
 
       #addMarkersToMap() {
         this.markersValue.forEach((marker) => {
