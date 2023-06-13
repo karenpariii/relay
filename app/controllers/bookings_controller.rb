@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
 
   def index
+    @current_lat = nil
+    @current_lng = nil
     if params[:query].present?
       @parkings = Parking.near(params[:query], 1)
                          .joins(:bookings)
@@ -15,6 +17,19 @@ class BookingsController < ApplicationController
         lat: parking.latitude,
         lng: parking.longitude
       }
+    end
+
+    if params[:lat].present?
+      @current_lat = params[:lat].to_f
+      @current_lng = params[:lng].to_f
+      p @current_lat
+      p @current_lng
+      p @parkings.first.distance_from([@current_lat,@current_lng])
+    end
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "bookings/list", locals: {parkings: @parkings}, formats: [:html] }
     end
   end
 
