@@ -12,8 +12,6 @@
 
   <div class="show-card-container">
     <% if @booking.taker_car == current_user.cars.last %>
-
-
       <div class="card-border-layer">
         <div class="show-card-first-box">
           <span class="username"><%=  @booking.giver_car.user.first_name%></span>
