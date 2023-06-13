@@ -1,10 +1,11 @@
 .navbar {
   display: flex;
   justify-content: space-around;
+  background: rgba(217, 217, 217, 0.38);
 
-
-  width: 100%;
   background-size: cover;
+  width: 80%;
+
   position: fixed !important;
 
 }
@@ -13,11 +14,6 @@
 // }
 
 .navbar-style {
-text-decoration: none;
-background: rgba(217, 217, 217, 0.38);
-}
-
-.navbar-round-btn{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -28,7 +24,24 @@ background: rgba(217, 217, 217, 0.38);
   height: 50px;
   border-radius: 50%;
   background-color: white;
+
+  text-decoration: none;
+
+
 }
+
+// .navbar-round-btn{
+//   // display: flex;
+//   // flex-direction: column;
+//   // flex-wrap: wrap;
+//   // align-content: center;
+//   // justify-content: center;
+
+//   // width: 50px;
+//   // height: 50px;
+//   // border-radius: 50%;
+//   // background-color: white;
+// }
 
 
 // !important
