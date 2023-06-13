@@ -37,7 +37,8 @@
         <div class="show-card-third-box-b">
             <span>Localiser la place dans GoogleMap : </span>
             <%= link_to "https://google.fr/maps/place/#{@booking.parking.address}", target: "_blank" do %>
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <%= image_tag('gmap.png', alt: 'Image description') %>
+              <%# <i class="fa fa-map-marker" aria-hidden="true"></i> %>
             <% end %></h2>
         </div>
 
