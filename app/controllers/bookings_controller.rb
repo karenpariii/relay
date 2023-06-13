@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
     @booking.giver_car = current_user.cars.last
     @booking.parking = @parking
     if @booking.save
-      redirect_to bookings_path
+      redirect_to booking_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
