@@ -52,6 +52,10 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(taker_car: current_user.cars.last)
+    BookingChannel.broadcast_to(
+      @booking,
+      render_to_string(partial: "show_giver", locals: {booking: @booking})
+    )
     redirect_to booking_path(@booking)
   end
 
