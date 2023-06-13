@@ -34,15 +34,22 @@
   display: flex;
 }
 
+.booking-card-border-layer{
+  background-image: url("ground/texture-white-stripe.png");
+  background-size: cover;
+  // margin: 5px 0;
+  padding: 10px;
+}
+
 .booking-card {
   display: flex;
   flex-direction: row;
-  background-image: url("ground/texture-white-stripe.png");
-  background-size: cover;
   align-content: center;
   justify-content: space-between;
   align-items: center;
-  margin: 5px 0;
+
+  background: white;
+  border-radius: 4px;
 }
 
 .bk-card-go-btn {
@@ -64,6 +71,10 @@
 
 .bk-card-btn {
   display: flex;
+}
+
+.bk-card-img {
+  margin-left: 10px;
 }
 
 .parking-address {
