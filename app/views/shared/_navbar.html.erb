@@ -1,22 +1,24 @@
-<nav class="navbar">
+<div class="navbar-container">
+  <nav class="navbar">
 
-  <%= link_to bookings_path, class: "navbar-style" do %>
-    <div class="navbar-round-btn">
-      <i class="fa-sharp fa-solid fa-house" style="color: #000000;"></i>
-    </div>
-  <% end %>
+    <%= link_to bookings_path, class: "navbar-style" do %>
+      <div class="navbar-round-btn">
+        <i class="fa-sharp fa-solid fa-house" style="color: #000000;"></i>
+      </div>
+    <% end %>
 
-  <%= link_to new_booking_path, class: "navbar-style" do %>
-    <div class="navbar-round-btn">
-      <i class="fa-solid fa-car-side" style="color: #000000;"></i>
-    </div>
-  <% end %>
+    <%= link_to new_booking_path, class: "navbar-style" do %>
+      <div class="navbar-round-btn">
+        <i class="fa-solid fa-car-side" style="color: #000000;"></i>
+      </div>
+    <% end %>
 
 
-  <%= link_to destroy_user_session_path, class: "navbar-style", data: {turbo_method: :delete} do %>
-    <div class="navbar-round-btn">
-      <i class="fa-solid fa-user" style="color: #000000;"></i>
-    </div>
-  <% end %>
+    <%= link_to destroy_user_session_path, class: "navbar-style", data: {turbo_method: :delete} do %>
+      <div class="navbar-round-btn">
+        <i class="fa-solid fa-user" style="color: #000000;"></i>
+      </div>
+    <% end %>
 
-</nav>
+  </nav>
+</div>
