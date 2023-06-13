@@ -58,7 +58,7 @@
       </div>
 
       <div class="show-validation-button">
-        <%= link_to "RESERVER", bookings_path, class: "validation-btn-txt"%>
+        <%= link_to "PLACE RÉCUPÉRÉE", bookings_path, class: "validation-btn-txt"%>
 
       </div>
     <% elsif @booking.giver_car == current_user.cars.last %>
@@ -136,7 +136,7 @@
       </div>
 
       <div class="show-validation-button">
-          <%= link_to "Réserver", booking_path, data: {turbo_method: :patch}, class: 'button-blue-big'%>
+          <%= link_to "RESERVER", booking_path, data: {turbo_method: :patch}, class: 'button-blue-big'%>
       </div>
 
     <% end %>
