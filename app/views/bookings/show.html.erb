@@ -24,6 +24,7 @@
       </div>
 
       <div class="show-card-third-box">
+          <span>Ouvrir l'adresse dans google map : </span>
           <%= link_to "https://google.fr/maps/place/#{@booking.parking.address}", target: "_blank" do %>
             <i class="fa fa-map-marker" aria-hidden="true"></i>
           <% end %></h2>
@@ -57,7 +58,7 @@
       </div>
 
       <div class="show-validation-button">
-        <%= link_to "RESERVER", bookings_path, class: "validation-btn-txt"%>
+        <%= link_to "PLACE RÉCUPÉRÉE", bookings_path, class: "validation-btn-txt"%>
 
       </div>
     <% elsif @booking.giver_car == current_user.cars.last %>
@@ -89,34 +90,58 @@
         <% end %>
       </div>
     <% else %>
-      <div class="d-flex justify-content-between align-items-center">
-        <% if @booking.giver_car.car_type == "citadine" %>
-          <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif @booking.giver_car.car_type == "berline" %>
-          <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif @booking.giver_car.car_type == "van" %>
-          <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-        <% end %>
 
-        <div>
-          <h2>Je Relay</h2>
-          <h3><%= @booking.giver_car.user.first_name%> <%= @booking.giver_car.user.last_name%></h3>
-          <p>Pars dans <%= time_ago_in_words @booking.available_at%></p>
-          <p>du <%= @booking.parking.address %></p>
-          <p><strong><%= @booking.giver_car.plate%></strong></p>
-        </div>
-
-        <div>
-          <p><%= @booking.giver_car.car_model%></p>
-          <p><%= @booking.giver_car.car_type%></p>
-          <p> <%= @booking.giver_car.car_color%></p>
-          <%= link_to "Réserver", booking_path, data: {turbo_method: :patch}, class: 'button-blue-big'%>
-        </div>
+      <div class="show-card-first-box">
+        <span class="username"><%=  @booking.giver_car.user.first_name%></span>
+        <span class="text">libère sa place dans </span>
+        <span class="countdown"><%= time_ago_in_words @booking.available_at%></span>
       </div>
+
+      <div class="show-card-second-box">
+        <span class="parking-address"><%= @booking.parking.address %></span>
+      </div>
+
+      <div class="show-card-third-box">
+          <span>Ouvrir l'adresse dans google map : </span>
+          <%= link_to "https://google.fr/maps/place/#{@booking.parking.address}", target: "_blank" do %>
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <% end %></h2>
+      </div>
+
+      <div class="show-card-fourth-box">
+        <div class="show-card-car-infos-1">
+
+          <div class=show-card-img>
+            <% if @booking.giver_car.car_type == "citadine" %>
+              <%= image_tag("cars/citadine.png", width: 70, height: 70, crop: :fill) %>
+            <% elsif @booking.giver_car.car_type == "berline" %>
+              <%= image_tag("cars/berline.png", width: 70, height: 70, crop: :fill) %>
+            <% elsif @booking.giver_car.car_type == "van" %>
+              <%= image_tag("cars/van.png", width: 70, height: 70, crop: :fill) %>
+            <% end %>
+          </div>
+
+          <p><%= @booking.giver_car.car_type%></p>
+        </div>
+
+        <div class="show-card-car-infos-2">
+          <span><%= @booking.giver_car.car_model%></span>
+          <span> <%= @booking.giver_car.car_color%></span>
+        </div>
+
+        <div class="show-card-car-infos-3">
+          <span><strong><%= @booking.giver_car.plate%></strong></span>
+        </div>
+
+      </div>
+
+      <div class="show-validation-button">
+          <%= link_to "RESERVER", booking_path, data: {turbo_method: :patch}, class: 'button-blue-big'%>
+      </div>
+
     <% end %>
 
   </div>
-
 </div>
 
 <%= render "shared/navbar" %>
