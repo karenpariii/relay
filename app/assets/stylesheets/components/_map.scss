@@ -6,3 +6,17 @@
   justify-content: center !important;
   margin: 20px;
 }
+
+.marker {
+  width: 20px;
+  height: 20px;
+  background-color: green;
+  border-radius: 50%;
+}
+
+.default-marker {
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  border-radius: 50%;
+}
