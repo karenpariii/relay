@@ -1,19 +1,22 @@
-<div class="form-container">
-    <div class="form-booking">
+<%= render "shared/header" %>
+
+<div class="base-container">
+  <div class="form-booking">
 
     <div class="adress-box">
-      <h2>Je rends ma place située au : </h2>
+      <h2>Je suis garé au : </h2>
       <p> <%= @parking.address %> </p>
     </div>
 
     <div class="datetime-box">
-      <h2>Je libère ma place à :</h2>
+      <h2> Je souhaite libérer cette place à :</h2>
       <%= simple_form_for @booking do |f| %>
-        <%= f.input :available_at, label: false, as: :datetime, html5: true, input_html:{value: Time.new.strftime('%Y-%m-%dT%k:%M')} %>
-        <%= f.submit "Trouvez moi un relay", class: "btn btn-primary" %>
+        <%= f.input :available_at, label: false, as: :datetime, html5: true, input_html:{value: Time.current.strftime('%Y-%m-%dT%k:%M')} %>
+        <%= f.submit "Chercher un relay", class: "btn btn-primary" %>
       <% end %>
     </div>
 
   </div>
-
 </div>
+
+<%= render "shared/navbar" %>

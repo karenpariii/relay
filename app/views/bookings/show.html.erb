@@ -1,13 +1,17 @@
-<div class="d-flex justify-content-center align-items-center my-5" style="color: #ebc041;">
-  <i class="fa-sharp fa-solid fa-car-side me-2" style="color: #ebc041;"></i>RE<i class="fa-solid fa-arrow-right" style="color: #ebc041;"></i>LAY
-</div>
-<div style="width: 100%; height: 450px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-<div class="card-show">
-   <% if @booking.taker_car == current_user.cars.last %>
+
+<%= render "shared/header" %>
+
+
+<div class="base-container">
+
+  <div class="map-container-show"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+  <div class="show-infos-container">
+    <% if @booking.taker_car == current_user.cars.last %>
       <div class="d-flex justify-content-between align-items-center">
         <% if @booking.giver_car.car_type == "citadine" %>
           <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
@@ -16,44 +20,82 @@
         <% elsif @booking.giver_car.car_type == "van" %>
           <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
         <% end %>
+
         <div>
           <h2>Je Relay
           <%= link_to "https://google.fr/maps/place/#{@booking.parking.address}", target: "_blank" do %>
-            <i class="fa-brands fa-google"></i>
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
           <% end %></h2>
           <h3><%= @booking.giver_car.user.first_name%> <%= @booking.giver_car.user.last_name%></h3>
           <p>Pars dans <%= time_ago_in_words @booking.available_at%></p>
           <p>du <%= @booking.parking.address %></p>
           <p><strong><%= @booking.giver_car.plate%></strong></p>
         </div>
+
         <div>
           <p><%= @booking.giver_car.car_model%></p>
           <p><%= @booking.giver_car.car_type%></p>
           <p> <%= @booking.giver_car.car_color%></p>
-          <%= link_to "Valider", bookings_path, class: 'button-blue-big'%>
+
+          <%= link_to "Je suis garé", bookings_path, class: 'button-blue-big'%>
+
         </div>
       </div>
-      <% else %>
-        <div class="d-flex justify-content-between align-items-center">
-        <% if @booking.taker_car.car_type == "citadine" %>
-          <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif @booking.taker_car.car_type == "berline" %>
-          <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-        <% elsif @booking.taker_car.car_type == "van" %>
-          <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-        <% end %>
-      </div>
-         <div>
-         <h2>Mon Relay arrive</h2>
+    <% elsif @booking.giver_car == current_user.cars.last %>
+      <div>
+        <% if @booking.taker_car.present? %>
+          <div class="d-flex justify-content-between align-items-center">
+            <% if @booking.taker_car.car_type == "citadine" %>
+              <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
+            <% elsif @booking.taker_car.car_type == "berline" %>
+              <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
+            <% elsif @booking.taker_car.car_type == "van" %>
+              <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
+            <% end %>
+          </div>
+          <h2>Mon Relay arrive</h2>
           <h3><%= @booking.taker_car.user.first_name%> <%= @booking.taker_car.user.last_name%></h3>
           <p>Arrive à <%= time_ago_in_words @booking.available_at%></p>
           <strong><%= @booking.taker_car.plate%></strong>
-         </div>
-         <div>
+          <div>
             <p><strong> <%= @booking.taker_car.car_model%></strong></p>
             <p><%= @booking.taker_car.car_type%></p>
             <p><%= @booking.taker_car.car_color%></p>
+          </div>
+        <% else %>
+          <h2> On cherche ton Relay! </h2>
+          <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="d-flex justify-content-between align-items-center">
+        <% if @booking.giver_car.car_type == "citadine" %>
+          <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
+        <% elsif @booking.giver_car.car_type == "berline" %>
+          <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
+        <% elsif @booking.giver_car.car_type == "van" %>
+          <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
+        <% end %>
+
+        <div>
+          <h2>Je Relay</h2>
+          <h3><%= @booking.giver_car.user.first_name%> <%= @booking.giver_car.user.last_name%></h3>
+          <p>Pars dans <%= time_ago_in_words @booking.available_at%></p>
+          <p>du <%= @booking.parking.address %></p>
+          <p><strong><%= @booking.giver_car.plate%></strong></p>
         </div>
-       <% end %>
+
+        <div>
+          <p><%= @booking.giver_car.car_model%></p>
+          <p><%= @booking.giver_car.car_type%></p>
+          <p> <%= @booking.giver_car.car_color%></p>
+          <%= link_to "Réserver", booking_path, data: {turbo_method: :patch}, class: 'button-blue-big'%>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
+<%= render "shared/navbar" %>

@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @parking = current_user.cars.last&.takings&.last&.parking
+    @parking = current_user.cars.last&.takings&.order(available_at: :desc)&.first&.parking
   end
 
   def create
@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
     @booking.giver_car = current_user.cars.last
     @booking.parking = @parking
     if @booking.save
-      redirect_to bookings_path
+      redirect_to booking_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
