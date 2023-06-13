@@ -7,14 +7,16 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    markers: Array
+    markers: Array,
+    redimage: String,
+    blueimage: String
   }
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/dark-v10",
+      style: "mapbox://styles/mapbox/dark-v10"
     })
 
     this.showCurrentPosition()
@@ -24,11 +26,10 @@ export default class extends Controller {
     }
 
       showCurrentPosition() {
-        if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
             (position) => {
               const { latitude, longitude } = position.coords;
-              const marker = { lat: latitude, lng: longitude };
+              const marker = { lat: latitude, lng: longitude, isCurrent: true };
               this.markersValue = [...this.markersValue, marker];
               this.#addMarkersToMap();
               this.#fitMapToMarkers();
@@ -36,15 +37,19 @@ export default class extends Controller {
             },
           );
         }
-      }
 
-  #addMarkersToMap() {
-    this.markersValue.forEach((marker)=> {
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .addTo(this.map)
-    })
-  }
+
+      #addMarkersToMap() {
+        this.markersValue.forEach((marker) => {
+          const element = document.createElement('div');
+          element.className = 'custom-marker';
+          element.style.backgroundImage = `url(${marker.isCurrent ? this.redimageValue : this.blueimageValue})`;
+
+          new mapboxgl.Marker({ element })
+            .setLngLat([marker.lng, marker.lat])
+            .addTo(this.map);
+        });
+      }
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()

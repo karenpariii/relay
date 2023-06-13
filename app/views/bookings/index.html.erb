@@ -26,7 +26,9 @@
   <div class="map-container"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-map-redimage-value="<%= asset_path("red.png") %>"
+    data-map-blueimage-value="<%= asset_path("blue.png") %>">
   </div>
 </div>
 
