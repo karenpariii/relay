@@ -35,7 +35,7 @@ class BookingsController < ApplicationController
 
   def create
     @parking = current_user.cars.last.takings.last.parking
-    user_entry_datetime = DateTime.strptime(review_params_booking[:available_at], '%Y-%m-%dT%k:%M')
+    user_entry_datetime = Time.zone.parse(review_params_booking[:available_at])
     @booking = Booking.new({ available_at: user_entry_datetime })
     @booking.giver_car = current_user.cars.last
     @booking.parking = @parking
