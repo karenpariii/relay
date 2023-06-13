@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl'
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
+
 // Connects to data-controller="map"
 export default class extends Controller {
   static values = {
@@ -14,15 +15,27 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/dark-v10",
-      center: [2.366762, 48.865765],
-      zoom: 14,
     })
+
+    this.showCurrentPosition()
 
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
+    }
 
-    // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      // mapboxgl: mapboxgl }))
+      showCurrentPosition() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const { latitude, longitude } = position.coords;
+              const marker = { lat: latitude, lng: longitude };
+              this.markersValue = [...this.markersValue, marker];
+              this.#addMarkersToMap();
+              this.#fitMapToMarkers();
+              console.log("Position OK")
+            },
+          );
+        }
       }
 
   #addMarkersToMap() {
