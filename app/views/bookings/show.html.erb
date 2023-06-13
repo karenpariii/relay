@@ -29,6 +29,33 @@
           <% end %></h2>
       </div>
 
+      <div class="show-card-fourth-box">
+        <div class="show-card-car-infos-1">
+
+          <div class=show-card-img>
+            <% if @booking.giver_car.car_type == "citadine" %>
+              <%= image_tag("cars/citadine.png", width: 70, height: 70, crop: :fill) %>
+            <% elsif @booking.giver_car.car_type == "berline" %>
+              <%= image_tag("cars/berline.png", width: 70, height: 70, crop: :fill) %>
+            <% elsif @booking.giver_car.car_type == "van" %>
+              <%= image_tag("cars/van.png", width: 70, height: 70, crop: :fill) %>
+            <% end %>
+          </div>
+
+          <p><%= @booking.giver_car.car_type%></p>
+        </div>
+
+        <div class="show-card-car-infos-2">
+          <span><%= @booking.giver_car.car_model%></span>
+          <span> <%= @booking.giver_car.car_color%></span>
+        </div>
+
+        <div class="show-card-car-infos-3">
+          <span><strong><%= @booking.giver_car.plate%></strong></span>
+        </div>
+
+      </div>
+
       <div class="show-validation-button">
         <%= link_to "RESERVER", bookings_path, class: "validation-btn-txt"%>
 
