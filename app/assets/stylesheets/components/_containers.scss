@@ -50,31 +50,13 @@
 
 }
 
-.map-search-fields-container{
-  display: flex;
-  justify-content: space-evenly;
-  background-image: url("ground/texture-asphalte4b.png");
-  background-size: cover;
-  background-position: bottom;
-}
-
-.map-container {
-  width: auto;
-  height: calc(100vh - 72px - 54px - 46px);
-  // margin-left: 0.5rem;
-  // margin-right: 0.5rem;
-}
-
-.map-container-show {
-  width: auto;
-  height: calc(100vh - 72px - 46px);
-}
 
 .booking-cards-container {
   display: flex;
   flex-direction: column;
   background-image: url("ground/texture-asphalte4b.png");
   background-size: cover;
+  overflow: scroll;
 }
 
 .container-dashboard {
