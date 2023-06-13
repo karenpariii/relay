@@ -5,21 +5,22 @@
   <% if booking.taker_car.present? %>
 
     <div class="show-card-border-layer">
-
       <div class="show-card-first-box-b">
         <%# <h2>Mon Relay arrive !</h2> %>
         <span class="card-text"><%=  booking.taker_car.user.first_name%></span>
         <span class="card-text">récupère votre place dans </span>
         <span class="card-important"><%= time_ago_in_words booking.available_at%></span>
       </div>
-
     </div>
 
-      <div class="show-card-border-layer">
-        <div class="show-card-second-box-b">
-          <span class="text">📍 <%= booking.parking.address %></span>
-        </div>
+    <div class="show-card-border-layer">
+      <div class="show-card-third-box-b">
+          <span>Localiser la place dans GoogleMap : </span>
+          <%= link_to "https://google.fr/maps/place/#{booking.parking.address}", target: "_blank" do %>
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <% end %></h2>
       </div>
+    </div>
 
     <div class="show-card-border-layer">
         <div class="show-card-fourth-box">
