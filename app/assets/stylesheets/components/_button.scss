@@ -23,60 +23,6 @@
 }
 
 
-.button-blue {
-  height: 30px;
-  width: 50px;
-  border-radius: 5px;
-  background-color: #0077b6;
-  color: white ;
-  font-family: 'Laila', sans-serif;
-  font-size: 8px;
-  text-align: center;
-}
-
-.button-blue-big {
-  height: 50px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #0077b6;
-  color: white ;
-  font-family: 'Laila', sans-serif;
-  font-size: 18px;
-  text-align: center;
-
-}
-
-.button-pink {
-  height: 30px;
-  width: 50px;
-  border-radius: 5px;
-  background-color: #d62828 ;
-  color: white ;
-  font-family: 'Laila', sans-serif;
-  font-size: 12px;
-  text-align: center;
-}
-.button-pink-big {
-  height: 60px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #d62828 ;
-  color: white ;
-  font-family: 'Laila', sans-serif;
-  font-size: 12px;
-  text-align: center;
-}
-.button-green {
-  height: 30px;
-  width: 50px;
-  border-radius: 5px;
-  background-color: #007200;
-  color: white ;
-  font-family: 'Laila', sans-serif;
-  font-size: 12px;
-  text-align: center;
-}
-
 .btn-flat {
   color: white;
   padding: 8px;
@@ -84,4 +30,11 @@
   background-image: url("ground/texture-asphalte4b.png");
   background-size: cover;
   text-decoration: none;
+}
+
+.btn-flat-white {
+  color: black;
+  padding: 6px;
+  border-radius: 4px;
+  background-color: white;
 }
