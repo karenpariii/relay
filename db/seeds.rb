@@ -29,20 +29,11 @@ parking_5 = Parking.create!(address: "110 Rue Amelot, 75011 Paris", latitude: "4
 parking_6 = Parking.create!(address: "49 Rue du Chemin Vert, 75011 Paris", latitude: "48.85964004829994", longitude: "2.375311098558855")
 
 
-<<<<<<< HEAD
-booking_1 = Booking.create!(available_at: "20230609160100", parking: parking_1, giver_car: car_karengiver )
-booking_2 = Booking.create!(available_at: "20230609152300", parking: parking_2, giver_car: car_aligiver )
-booking_3 = Booking.create!(available_at: "20230609153300", parking: parking_3, giver_car: car_damsogiver, taker_car: car_romaintaker)
-booking_4 = Booking.create!(available_at: "20230609155600", parking: parking_4, giver_car: car_karengiver )
-booking_5 = Booking.create!(available_at: "20230609162300", parking: parking_5, giver_car: car_aligiver )
-booking_6 = Booking.create!(available_at: "20230609153300", parking: parking_6, giver_car: car_damsogiver, taker_car: car_romaintaker )
-=======
 booking_1 = Booking.create!(available_at: "20230609152000", parking: parking_1, giver_car: car_karengiver )
 booking_2 = Booking.create!(available_at: "20230609151000", parking: parking_2, giver_car: car_aligiver )
 booking_3 = Booking.create!(available_at: "20230609152500", parking: parking_3, giver_car: car_damsogiver, taker_car: car_romaintaker)
 booking_4 = Booking.create!(available_at: "20230609153000", parking: parking_4, giver_car: car_karengiver )
 booking_5 = Booking.create!(available_at: "20230609153500", parking: parking_5, giver_car: car_aligiver )
 booking_6 = Booking.create!(available_at: "20230609154000", parking: parking_6, giver_car: car_damsogiver, taker_car: car_romaintaker )
->>>>>>> db98b4131a5e8eb49f3ecf6c655a4aa233bd0b95
 
 puts "seeds upload all"

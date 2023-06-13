@@ -2,14 +2,10 @@ class BookingsController < ApplicationController
 
   def index
     if params[:query].present?
-<<<<<<< HEAD
-      @parkings = Parking.near(params[:query], 1).joins(:bookings).where(bookings: { taker_car: nil } && { available_at: params[:time] })
-=======
       @parkings = Parking.near(params[:query], 1)
                          .joins(:bookings)
                          .where(bookings: { taker_car: nil })
                         #  .where("bookings.available_at BETWEEN ? AND ?", params[:time] - 10.minutes, params[:time] + 10.minutes)
->>>>>>> db98b4131a5e8eb49f3ecf6c655a4aa233bd0b95
     else
       @parkings = Parking.none
     end
@@ -38,11 +34,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-<<<<<<< HEAD
-    #@parking = current_user.cars.last.givings.last.parking
-=======
     @parking = current_user.cars.last.takings.last.parking
->>>>>>> db98b4131a5e8eb49f3ecf6c655a4aa233bd0b95
     user_entry_datetime = DateTime.strptime(review_params_booking[:available_at], '%Y-%m-%dT%k:%M')
     @booking = Booking.new({ available_at: user_entry_datetime })
     @booking.giver_car = current_user.cars.last
