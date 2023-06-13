@@ -24,14 +24,16 @@
   display: flex;
   flex-direction: column;
   height: calc(100vh - 72px - 46px);
-  // background-image: url("ground/texture-asphalte4b.png");
-  background-color: lightpink;
+  background-image: url("ground/texture-asphalte4b.png");
   background-size: cover;
 }
 
-.show-infos-container {
-  background-image: url("ground/texture-white-stripe.png");
+.show-card-container {
+  background-image: url("ground/texture-asphalte4b.png");
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0;
 }
 
 .header-container {
