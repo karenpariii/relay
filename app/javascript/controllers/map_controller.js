@@ -5,24 +5,24 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="map"
 export default class extends Controller {
+  static targets = ["list", "map"]
+
   static values = {
     apiKey: String,
     markers: Array,
     redimage: String,
     blueimage: String
   }
-  connect() {
+   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-
+    console.log(this.mapTarget)
     this.map = new mapboxgl.Map({
-      container: this.element,
+      container: this.mapTarget,
       style: "mapbox://styles/mapbox/dark-v10"
     })
 
-    this.showCurrentPosition()
 
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    this.showCurrentPosition()
     }
 
       showCurrentPosition() {
@@ -34,6 +34,11 @@ export default class extends Controller {
               this.#addMarkersToMap();
               this.#fitMapToMarkers();
               console.log("Position OK")
+              fetch(`/bookings?lat=${marker.lat}&lng=${marker.lng}`, {headers: {"Accept": "text/plain"}})
+              .then(response => response.text())
+              .then((data) => {
+                this.listTarget.outerHTML = data
+              })
             },
           );
         }

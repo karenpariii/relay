@@ -1,0 +1,38 @@
+<div class="booking-cards-container" data-map-target="list">
+  <% parkings.each do |parking| %>
+    <% booking = parking.bookings.last%>
+    <%# parking.bookings.each do |booking| %>
+
+      <div class="card-border-layer">
+        <div class="show-card-border-layer">
+          <div class="booking-card">
+
+            <div class="bk-card-img">
+              <% if booking.giver_car.car_type == "citadine" %>
+                <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
+              <% elsif booking.giver_car.car_type == "berline" %>
+                <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
+              <% elsif booking.giver_car.car_type == "van" %>
+                <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
+              <% end %>
+            </div>
+
+            <div class="bk-card-infos">
+                <% unless @current_lat.nil? %>
+                <span class="bk-card-address"><%= parking.distance_from([@current_lat,@current_lng]) %></span>
+                <% end %>
+                <span class="bk-card-time"><%= time_ago_in_words booking.available_at %></span>
+                <span class="bk-card-address"><%= parking.address %></span>
+            </div>
+
+            <div class="bk-card-go-btn">
+              <%= link_to "Go !", booking_path(booking), class:"btn-flat" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <%# end%>
+  <% end %>
+
+</div>
