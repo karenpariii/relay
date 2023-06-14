@@ -15,7 +15,8 @@ class BookingsController < ApplicationController
     @markers = @parkings.geocoded.map do |parking|
       {
         lat: parking.latitude,
-        lng: parking.longitude
+        lng: parking.longitude,
+        parkingId: parking.id
       }
     end
 
