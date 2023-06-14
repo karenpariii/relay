@@ -5,22 +5,21 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
 // Connects to data-controller="map"
 export default class extends Controller {
+  static targets = ["list", "map"]
+
   static values = {
     apiKey: String,
     markers: Array,
     redimage: String,
     blueimage: String
   }
-
-  connect() {
+   connect() {
     mapboxgl.accessToken = this.apiKeyValue
-
+    console.log(this.mapTarget)
     this.map = new mapboxgl.Map({
-      container: this.element,
+      container: this.mapTarget,
       style: "mapbox://styles/mapbox/dark-v10"
     })
-
-
 
     // this.map.on('click', () => {
     //   document.querySelectorAll('.card-border-layer').forEach((card) => {
@@ -28,23 +27,27 @@ export default class extends Controller {
     //     card.classList.remove('d-none');
     //   })
     // })
+    
     this.showCurrentPosition()
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
     }
 
-  showCurrentPosition() {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          const marker = { lat: latitude, lng: longitude, isCurrent: true };
-          this.markersValue = [...this.markersValue, marker];
-          this.#addMarkersToMap();
-          this.#fitMapToMarkers();
-          console.log("Position OK")
-        },
-      );
-    }
+      showCurrentPosition() {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const { latitude, longitude } = position.coords;
+              const marker = { lat: latitude, lng: longitude, isCurrent: true };
+              this.markersValue = [...this.markersValue, marker];
+              this.#addMarkersToMap();
+              this.#fitMapToMarkers();
+              console.log("Position OK")
+              fetch(`/bookings?lat=${marker.lat}&lng=${marker.lng}`, {headers: {"Accept": "text/plain"}})
+              .then(response => response.text())
+              .then((data) => {
+                this.listTarget.outerHTML = data
+              })
+            },
+          );
+        }
 
 
   #addMarkersToMap() {

@@ -38,7 +38,7 @@
 .map-container {
   width: 100vw;
   // height: 300px;
-  height: calc(100vh - 72px - 54px - 46px - 66px - 66px - 66px);
+  height: calc(100vh - 54px - 46px);
   // margin-left: 0.5rem;
   // margin-right: 0.5rem;
 }
@@ -64,5 +64,5 @@
 
 .custom-marker {
   width: 20px;
-  height: 30px;
+  height: 40px;
 }

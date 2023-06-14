@@ -22,53 +22,27 @@
     <%= submit_tag "Search", class: "btn-flat-white" %>
   <% end %>
 
-  <div class="map">
-    <div class="map-container"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-      data-map-redimage-value="<%= asset_path("red.png") %>"
-      data-map-blueimage-value="<%= asset_path("blue.png") %>"
-      >
-    </div>
+  <div class="booking-cards-container" data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-map-redimage-value="<%= asset_path("red.png") %>"
+        data-map-blueimage-value="<%= asset_path("blue.png") %>">
+    <div class="map">
+      <div class="map-container"
+        data-map-target="map">
+      </div>
+
+      <div class="container-message">
+  <%# <p>Vous avez <%#= @parkings.count  parkings à proximité</p> %>
   </div>
 
-  <div class="booking-cards-container" >
-    <% @parkings.each do |parking| %>
-      <% booking = parking.bookings.last%>
-      <%# parking.bookings.each do |booking| %>
+  </div>
 
-        <div class="card-border-layer" id='parking-<%= parking.id %>'>
-          <div class="show-card-border-layer">
-            <div class="booking-card">
+        <%= render "list", parkings: @parkings %>
 
-              <div class="bk-card-img">
-                <% if booking.giver_car.car_type == "citadine" %>
-                  <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-                <% elsif booking.giver_car.car_type == "berline" %>
-                  <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-                <% elsif booking.giver_car.car_type == "van" %>
-                  <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-                <% end %>
-              </div>
-
-              <div class="bk-card-infos">
-                  <span class="bk-card-address">Libre dans </span>
-                  <span class="bk-card-time"><%= time_ago_in_words booking.available_at %></span>
-                  <span class="bk-card-address"><%= parking.address %></span>
-              </div>
-
-              <div class="bk-card-go-btn">
-                <%= link_to "Go !", booking_path(booking), class:"btn-flat" %>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      <%# end%>
-    <% end %>
 
   </div>
+
 
 </div>
 
