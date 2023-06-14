@@ -1,3 +1,24 @@
+<<<<<<< Updated upstream
+=======
+// .mapboxgl-ctrl-geocoder {
+//   border-radius: 20px !important;
+//   display: flex !important;
+//   text-align: center !important;
+//   align-items: center !important;
+//   justify-content: center !important;
+//   // position: sticky !important;
+//   // height: calc(100vh - 200px);
+//   margin: 20px;
+// }
+
+.mapboxgl-canvas-container {
+  // height:300px;
+}
+
+.mapboxgl-canvas{
+  // height:300px !important;
+}
+>>>>>>> Stashed changes
 
 .map-container-show {
   width: auto;
@@ -9,15 +30,17 @@
 
 .map-container {
   width: 100vw;
-  // height: 300px;
-  height: calc(100vh - 54px - 46px);
-  // margin-left: 0.5rem;
-  // margin-right: 0.5rem;
+  height: calc(100vh - 46px - 56px );
 }
 
 .map {
+<<<<<<< Updated upstream
   height: calc(100vh - 102px);
   position: fixed;
+=======
+  height: calc(100vh - 46px - 56px);
+  // position: fixed;
+>>>>>>> Stashed changes
   top: calc(54px + 46px);
   height: 300px;
   width: auto;
@@ -31,10 +54,6 @@
   background-size: cover;
   background-position: bottom;
 }
-
-
-
-
 
 .marker {
   width: 20px;

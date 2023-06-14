@@ -31,8 +31,8 @@
 .index-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 72px - 46px);
-  background-image: url("ground/texture-asphalte4b.png");
+  height: calc(100vh - 46px);
+  background-color: pink;
   background-size: cover;
 }
 
