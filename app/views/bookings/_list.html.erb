@@ -10,7 +10,7 @@
 
       <div class="bk-card-infos">
         <% unless @current_lat.nil? %>
-        <span class="index-card-text">a <%= (parking.distance_from([@current_lat,@current_lng])*1000).to_i %> metres dans <%= time_ago_in_words booking.available_at %></span>
+        <span class="index-card-text">a <%= (parking.distance_from([@current_lat,@current_lng])*1000).to_i %>m dans <%= time_ago_in_words booking.available_at %></span>
         <% end %>
       </div>
 
