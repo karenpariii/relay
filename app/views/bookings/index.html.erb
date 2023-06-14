@@ -38,32 +38,23 @@
 
       <% @parkings.each do |parking| %>
         <% booking = parking.bookings.last%>
-        <%# parking.bookings.each do |booking| %>
 
         <div class="booking-card">
 
           <div class="bk-card-img">
-            <% if booking.giver_car.car_type == "citadine" %>
-              <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-            <% elsif booking.giver_car.car_type == "berline" %>
-              <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-            <% elsif booking.giver_car.car_type == "van" %>
-              <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-            <% end %>
+              <%= image_tag("cars/new-map-car.png", width: 40, height: 20, crop: :fill) %>
           </div>
 
           <div class="bk-card-infos">
-              <span class="bk-card-address">Libre dans </span>
-              <span class="bk-card-time"><%= time_ago_in_words booking.available_at %></span>
-              <span class="bk-card-address"><%= parking.address %></span>
+              <span class="index-card-text">Pars dans <%= time_ago_in_words booking.available_at %></span>
+              <%# bk-card-address %>
           </div>
 
           <div class="bk-card-go-btn">
-            <%= link_to "Go !", booking_path(booking), class:"btn-flat" %>
+            <% link_to booking_path(booking), class:"bk-card-eye-btn" %>
+              <i class="fa-sharp fa-solid fa-eye" style="color: #000000;"></i>
           </div>
         </div>
-
-        <%# end%>
       <% end %>
 
     </div>
