@@ -19,8 +19,9 @@
       type: "time",
       value: Time.current.strftime('%H:%M')%>
     </div>
-
+    <%= submit_tag "Search", class: "btn-flat-white" %>
   <% end %>
+
   <div class="booking-cards-container" data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
@@ -30,6 +31,11 @@
       <div class="map-container"
         data-map-target="map">
       </div>
+
+      <div class="container-message">
+  <p>Vous avez <%= @parkings.count %> parkings à proximité</p>
+  </div>
+
     </div>
 
         <%= render "list", parkings: @parkings %>
