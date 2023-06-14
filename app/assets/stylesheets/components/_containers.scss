@@ -42,6 +42,10 @@
   display: flex;
   flex-direction: column;
   margin: 0.5rem 0;
+  padding-bottom: 75px;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
 }
 
 .header-container {
@@ -67,8 +71,12 @@
 
   background: rgba(217, 217, 217, 0.38);
   background-size: cover;
+  position: fixed;
+  bottom: 78px;
+  width: 100vw;
+  height: 300px;
+  overflow: scroll;
 
-  
 
   // backdrop-filter: blur(1px);
 }
