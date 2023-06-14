@@ -4,23 +4,20 @@
 
   <%= form_with url: bookings_path, method: :get, class: "map-search-fields-container py-2" do %>
 
-    <div class="map-search-field">
+    <div class="map-search-field" data-controller="autocomplete" data-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Adresse",
         data: {
-          controller: "autocomplete",
-          autocomplete_target: "input",
-          autocomplete_api_key_value: ENV['MAPBOX_API_KEY']
-        } %>
+          autocomplete_target: "inputaddress",
+        },
+        class: "d-none" %>
+        <div data-autocomplete-target= "input">
+
+        </div>
     </div>
 
-    <div data-controller="autocomplete"
-      data-autocomplete-target= "input"
-      data-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-
-    </div>
 
     <div class="map-search-field">
       <%= text_field_tag :time,
@@ -45,7 +42,7 @@
 
 
       <div class="container-message">
-  <p>Vous avez <%= @parkings.count %> parkings à proximité</p>
+  <p>Vous avez <%=  %> parkings à proximité</p>
   </div>
 
     </div>

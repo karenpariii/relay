@@ -5,7 +5,7 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 
 // Connects to data-controller="autocomplete"
 export default class extends Controller {
-  static targets = ["input"];
+  static targets = ["input", "inputaddress"];
   static values = { apiKey: String }
   connect() {
     const geocoder = new MapboxGeocoder({
@@ -13,14 +13,14 @@ export default class extends Controller {
       types: "country,region,place,postcode,locality,neighborhood,address"
     });
 
+    geocoder.addTo(this.inputTarget);
+
     geocoder.on("result", (event) => {
-      this.inputTarget.value = event.result.text;
+      this.inputaddressTarget.value = event.result.text;
     });
 
-    // geocoder.on("clear", () => {
-    //   this.inputTarget.value = "";
-    // });
-
-    geocoder.addTo(this.inputTarget);
+    geocoder.on("clear", () => {
+      this.inputTarget.value = "";
+    });
   }
 }
