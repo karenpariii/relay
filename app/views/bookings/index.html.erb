@@ -8,7 +8,18 @@
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "Adresse" %>
+        placeholder: "Adresse",
+        data: {
+          controller: "autocomplete",
+          autocomplete_target: "input",
+          autocomplete_api_key_value: ENV['MAPBOX_API_KEY']
+        } %>
+    </div>
+
+    <div data-controller="autocomplete"
+      data-autocomplete-target= "input"
+      data-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
     </div>
 
     <div class="map-search-field">
@@ -33,7 +44,7 @@
   </div>
 
   <div class="container-message">
-  <p>Vous avez <%= @parkings.count %> parkings à proximité</p>
+  <p>Vous avez <%=%> parkings à proximité</p>
   </div>
 
     <div class="booking-cards-container">
