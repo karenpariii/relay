@@ -31,7 +31,6 @@
     <%= submit_tag "Search", class: "btn-flat-white" %>
   <% end %>
 
-<<<<<<< Updated upstream
   <div data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
@@ -42,20 +41,7 @@
         data-map-target="map">
       </div>
     </div>
-     <%= render "list", parkings: @parkings %>
-=======
-  <div class="map-container">
-    <div data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-          data-map-redimage-value="<%= asset_path("red.png") %>"
-          data-map-blueimage-value="<%= asset_path("blue.png") %>">
-
-    <div class="map">
-      <div data-map-target="map"></div>
-    </div>
-
->>>>>>> Stashed changes
+    <%= render "list", parkings: @parkings %>
   </div>
 
   <%= render "list", parkings: @parkings %>
