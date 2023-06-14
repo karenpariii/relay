@@ -58,13 +58,15 @@ export default class extends Controller {
       const element = document.createElement('div');
       element.className = 'custom-marker';
       element.style.backgroundImage = `url(${marker.isCurrent ? this.redimageValue : this.blueimageValue})`;
-      element.dataset.parkingId = marker.parkingId
-      element.addEventListener('click', (e) => {
-        document.querySelectorAll('.card-border-layer').forEach((card) => {
-          card.classList.add('d-none');
+      if (this.hasListTarget){
+        element.dataset.parkingId = marker.parkingId
+        element.addEventListener('click', (e) => {
+          document.querySelectorAll('.card-border-layer').forEach((card) => {
+            card.classList.add('d-none');
+          })
+          document.querySelector(`#parking-${e.currentTarget.dataset.parkingId}`).classList.remove('d-none')
         })
-        document.querySelector(`#parking-${e.currentTarget.dataset.parkingId}`).classList.remove('d-none')
-      })
+      }
       new mapboxgl.Marker({ element })
         .setLngLat([marker.lng, marker.lat])
         .addTo(this.map);
