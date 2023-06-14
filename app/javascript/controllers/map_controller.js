@@ -15,7 +15,6 @@ export default class extends Controller {
   }
    connect() {
     mapboxgl.accessToken = this.apiKeyValue
-    console.log(this.mapTarget)
     this.map = new mapboxgl.Map({
       container: this.mapTarget,
       style: "mapbox://styles/mapbox/dark-v10"
@@ -27,8 +26,12 @@ export default class extends Controller {
     //     card.classList.remove('d-none');
     //   })
     // })
-    
-    this.showCurrentPosition()
+    if (this.hasListTarget){
+      this.showCurrentPosition()
+    } else {
+      this.#addMarkersToMap();
+      this.#fitMapToMarkers();
+    }
     }
 
       showCurrentPosition() {
