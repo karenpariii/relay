@@ -13,7 +13,7 @@ export default class extends Controller {
     redimage: String,
     blueimage: String
   }
-  async connect() {
+   connect() {
     mapboxgl.accessToken = this.apiKeyValue
     console.log(this.mapTarget)
     this.map = new mapboxgl.Map({
