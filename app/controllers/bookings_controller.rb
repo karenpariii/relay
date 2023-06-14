@@ -22,14 +22,11 @@ class BookingsController < ApplicationController
     if params[:lat].present?
       @current_lat = params[:lat].to_f
       @current_lng = params[:lng].to_f
-      p @current_lat
-      p @current_lng
-      p @parkings.first.distance_from([@current_lat,@current_lng])
     end
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: "bookings/list", locals: {parkings: @parkings}, formats: [:html] }
+      format.text { render partial: "bookings/list", locals: { parkings: @parkings }, formats: [:html] }
     end
   end
 
@@ -38,9 +35,9 @@ class BookingsController < ApplicationController
     @parking = @booking.parking
     @parking.geocode
     @markers = [{
-        lat: @parking.latitude,
-        lng: @parking.longitude
-      }]
+      lat: @parking.latitude,
+      lng: @parking.longitude
+    }]
   end
 
   def new
