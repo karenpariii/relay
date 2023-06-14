@@ -9,10 +9,7 @@
 
 .map-container {
   width: 100vw;
-  // height: 300px;
-  height: calc(100vh - 54px - 46px);
-  // margin-left: 0.5rem;
-  // margin-right: 0.5rem;
+  height: calc(100vh - 46px - 56px );
 }
 
 .map {
@@ -31,10 +28,6 @@
   background-size: cover;
   background-position: bottom;
 }
-
-
-
-
 
 .marker {
   width: 20px;

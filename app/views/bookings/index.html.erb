@@ -27,6 +27,7 @@
       type: "time",
       value: Time.current.strftime('%H:%M')%>
     </div>
+
     <%= submit_tag "Search", class: "btn-flat-white" %>
   <% end %>
 
@@ -40,9 +41,10 @@
         data-map-target="map">
       </div>
     </div>
-     <%= render "list", parkings: @parkings %>
+    <%= render "list", parkings: @parkings %>
   </div>
 
+  <%= render "list", parkings: @parkings %>
 
 </div>
 
