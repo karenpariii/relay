@@ -1,6 +1,9 @@
 .navbar-container {
   display: flex;
   justify-content: center;
+
+  z-index: 1000;
+  position: relative;
 }
 
 .login-container {
@@ -45,7 +48,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("ground/texture-asphalte4b.png");
+  background-color: black;
   background-size: cover;
 
   p {
@@ -57,11 +60,17 @@
 
 
 .booking-cards-container {
+  z-index: 1;
+
   display: flex;
   flex-direction: column;
-  background-image: url("ground/texture-asphalte4b.png");
+
+  background: rgba(217, 217, 217, 0.38);
   background-size: cover;
+
   overflow: scroll;
+
+  // backdrop-filter: blur(1px);
 }
 
 .container-dashboard {
