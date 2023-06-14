@@ -7,7 +7,11 @@
   <div class="map-container-show"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-map-blueimage-value="<%= asset_path("blue.png") %>">
+    <div class="map-container"
+      data-map-target="map">
+    </div>
   </div>
 
   <div class="show-card-container">
