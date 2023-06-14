@@ -74,7 +74,7 @@
         </div>
       </div>
 
-      <div class="show-validation-button-border">
+      <div class="show-validation-button-border" data-booking-unsubscription-booking-id-value='<%= booking.id %>'>
         <div class="show-validation-button">
           <%= link_to "JE SUIS BIEN GARÉ", bookings_path, class: "validation-btn-txt"%>
         </div>
@@ -82,7 +82,7 @@
 
     <% elsif @booking.giver_car == current_user.cars.last %>
       <%= render "show_giver", booking: @booking %>
-      
+
     <% else %>
       <div class="show-card-border-layer">
         <div class="show-card-first-box">
