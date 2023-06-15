@@ -11,7 +11,8 @@ export default class extends Controller {
     apiKey: String,
     markers: Array,
     redimage: String,
-    blueimage: String
+    blueimage: String,
+    query: String
   }
    connect() {
     mapboxgl.accessToken = this.apiKeyValue
@@ -43,7 +44,7 @@ export default class extends Controller {
               this.#addMarkersToMap();
               this.#fitMapToMarkers();
               console.log("Position OK")
-              fetch(`/bookings?lat=${marker.lat}&lng=${marker.lng}`, {headers: {"Accept": "text/plain"}})
+              fetch(`/bookings?lat=${marker.lat}&lng=${marker.lng}&query=${this.queryValue}`, {headers: {"Accept": "text/plain"}})
               .then(response => response.text())
               .then((data) => {
                 this.listTarget.outerHTML = data
