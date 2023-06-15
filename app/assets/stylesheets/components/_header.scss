@@ -1,0 +1,19 @@
+.header-container {
+  height: 50px;
+  position: fixed;
+  width: 100vw;
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+  background-color: black;
+
+  p {
+    color: #E8FF54;
+    font-size: 20px;
+    font-family: 'Laila', sans-serif;
+    margin: 0;
+  }
+}

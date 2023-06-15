@@ -1,5 +1,5 @@
 .index-card-text {
-  font-size: 20px;
+  font-size: 16px;
   color: white;
 
   background: black;
@@ -73,6 +73,8 @@
   align-content: center;
   justify-content: space-between;
   align-items: center;
+
+  z-index: 1;
 
   // background: rgba(217, 217, 217, 0.38);
 }

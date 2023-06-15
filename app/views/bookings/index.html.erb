@@ -1,50 +1,55 @@
 <%= render "shared/header" %>
 
-<div class="index-container">
+<div
+  data-controller="map"
+  data-map-query-value="<%= params[:query] %>"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-map-redimage-value="<%= asset_path("red.png") %>"
+  data-map-blueimage-value="<%= asset_path("blue.png") %>"
+>
+  <div class="map">
+    <div class="map-container" data-map-target="map">
 
-  <div data-controller="map"
-        data-map-query-value="<%= params[:query] %>"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-        data-map-redimage-value="<%= asset_path("red.png") %>"
-        data-map-blueimage-value="<%= asset_path("blue.png") %>">
-    <div class="map">
-      <div class="map-container"
-        data-map-target="map">
+      <%= form_with url: bookings_path, method: :get, class: "map-search-fields-container" do %>
+        <div
+          class="map-address-field"
+          data-controller="autocomplete"
+          data-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        >
+          <%=
+            text_field_tag :query,
+                           params[:query],
+                           placeholder: "Adresse",
+                           data: {
+                             autocomplete_target: "inputaddress",
+                           },
+                           class: "d-none"
+          %>
 
-        <%= form_with url: bookings_path, method: :get, class: "map-search-fields-container" do %>
-
-          <div class="map-search-field" data-controller="autocomplete" data-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-            <%= text_field_tag :query,
-              params[:query],
-              # class: "form-control",
-              placeholder: "Adresse",
-              data: {
-                autocomplete_target: "inputaddress",
-              },
-              class: "d-none" %>
-              <div data-autocomplete-target= "input">
-
-              </div>
+          <div data-autocomplete-target= "input">
           </div>
+        </div>
 
-          <div class="map-search-field">
-            <%= text_field_tag :time,
-            params[:time],
-            class: "map-time-field",
-            placeholder: "Time",
-            type: "time",
-            value: Time.current.strftime('%H:%M')%>
+        <div class="map-time-and-btn-container">
+          <div>
+            <%=
+              text_field_tag :time,
+                             params[:time],
+                             class: "map-time-field",
+                             placeholder: "Time",
+                             type: "time",
+                             value: Time.current.strftime('%H:%M')
+            %>
           </div>
 
           <%= submit_tag "Go", class: "map-go-btn" %>
-        <% end %>
-      </div>
-
+        </div>
+      <% end %>
     </div>
-
-    <%= render "list", parkings: @parkings %>
   </div>
+
+  <%= render "list", parkings: @parkings %>
 </div>
 
 <%= render "shared/navbar" %>
