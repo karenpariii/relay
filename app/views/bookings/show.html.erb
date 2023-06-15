@@ -14,9 +14,9 @@
     </div>
   </div>
 
-  <div class="booking-cards-container-show1">
-    <% if @booking.taker_car == current_user.cars.last %>
 
+  <% if @booking.taker_car == current_user.cars.last %>
+    <div class="booking-cards-container-show1">
       <div class="dark-container">
         <div class="booking-card">
 
@@ -35,7 +35,7 @@
             <%# <span>Localiser la place dans GoogleMap : </span> %>
           </div>
         </div>
-         <div class="booking-card mb-2">
+        <div class="booking-card mb-2">
             <%= link_to "https://google.fr/maps/place/#{@booking.parking.address}", target: "_blank" do %>
               <%= image_tag('gmap.png',width: 30, height: 30, crop: :fill ) %>
               <%# <i class="fa fa-map-marker" aria-hidden="true"></i> %>
@@ -60,11 +60,13 @@
 
         <%= link_to "JE SUIS BIEN GARÉ", bookings_path, class: "go-btn" %>
 
-
-    <% elsif @booking.giver_car == current_user.cars.last %>
-      <%= render "show_giver", booking: @booking %>
-
-    <% else %>
+    </div>
+  <% elsif @booking.giver_car == current_user.cars.last %>
+  <div class="booking-cards-container-show2">
+    <%= render "show_giver", booking: @booking %>
+  </div>
+  <% else %>
+    <div class="booking-cards-container-show1">
       <div class="show-card-border-layer">
         <div class="show-card-first-box">
           <span class="parking-icone"> 🅿️ </span>
@@ -119,10 +121,8 @@
             <%= link_to "RESERVER", booking_path, data: {turbo_method: :patch}, class: "map-go-btn" %>
         </div>
       </div>
-
-    <% end %>
-
-  </div>
+    </div>
+  <% end %>
 </div>
 
 <%= render "shared/navbar" %>
