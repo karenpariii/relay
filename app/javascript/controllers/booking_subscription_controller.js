@@ -1,9 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 import { createConsumer } from "@rails/actioncable"
 
-// Connects to data-controller="booking-subscription"
 export default class extends Controller {
   static values = { bookingId: Number }
+
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "BookingChannel", id: this.bookingIdValue },
@@ -11,6 +11,7 @@ export default class extends Controller {
     )
     console.log(`Réserve cette place numéro ${this.bookingIdValue}.`)
   }
+
   disconnect() {
     console.log("Unsubscribed from the booking")
     this.channel.unsubscribe()

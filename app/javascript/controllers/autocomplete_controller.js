@@ -1,9 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
-import mapboxgl from 'mapbox-gl'
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+// import mapboxgl from 'mapbox-gl'
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
-
-// Connects to data-controller="autocomplete"
 export default class extends Controller {
   static targets = ["input", "inputaddress"];
   static values = { apiKey: String }
@@ -12,7 +10,8 @@ export default class extends Controller {
     const geocoder = new MapboxGeocoder({
       accessToken: this.apiKeyValue,
       countries: 'fr',
-      types: "country,region,place,postcode,locality,neighborhood,address"
+      types: "country,region,place,postcode,locality,neighborhood,address",
+      language: 'fr'
     });
 
     geocoder.addTo(this.inputTarget);
