@@ -107,20 +107,20 @@
   margin: 0 auto;
 }
 .container-booking h2 {
-  font-family: 'Laila', sans-serif;
+  font-family: 'Sarabun';
   font-size: 12px;
   font-weight: bold;
   margin-bottom: 2px;
 }
 .container-booking p {
-  font-family: 'Laila', sans-serif;
+  font-family: 'Sarabun';
   font-size: 12px;
   font-weight: bold;
   margin-bottom: 2px;
   }
 
 .container-message p {
-  font-family: 'Laila', sans-serif;
+  font-family: 'Sarabun';
   color: white;
   font-size: 20px;
   margin-bottom: 2px;
@@ -129,11 +129,10 @@
 .new-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 63.81px);
+  height: 100vh;
   justify-content: center;
   background-image: url("ground/background-map.png");
   background-size: cover;
-
 }
 
 .booking-cards-container-show {
