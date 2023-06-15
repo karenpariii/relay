@@ -14,37 +14,38 @@
 
         <%= form_with url: bookings_path, method: :get, class: "map-search-fields-container" do %>
 
-          <div class="map-search-field" data-controller="autocomplete" data-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          <div class="map-address-field" data-controller="autocomplete" data-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
             <%= text_field_tag :query,
               params[:query],
-              # class: "form-control",
               placeholder: "Adresse",
               data: {
                 autocomplete_target: "inputaddress",
               },
               class: "d-none" %>
               <div data-autocomplete-target= "input">
-
               </div>
           </div>
 
-          <div class="map-search-field">
-            <%= text_field_tag :time,
-            params[:time],
-            class: "map-time-field",
-            placeholder: "Time",
-            type: "time",
-            value: Time.current.strftime('%H:%M')%>
+          <div class="map-time-and-btn-container">
+            <div>
+              <%= text_field_tag :time,
+              params[:time],
+              class: "map-time-field",
+              placeholder: "Time",
+              type: "time",
+              value: Time.current.strftime('%H:%M')%>
+            </div>
+            <%= submit_tag "Go", class: "map-go-btn" %>
           </div>
 
-          <%= submit_tag "Go", class: "map-go-btn" %>
         <% end %>
+
       </div>
-
     </div>
-
-    <%= render "list", parkings: @parkings %>
   </div>
+
+  <%= render "list", parkings: @parkings %>
+
 </div>
 
 <%= render "shared/navbar" %>
