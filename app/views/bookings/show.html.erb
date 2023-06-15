@@ -62,65 +62,45 @@
 
     </div>
   <% elsif @booking.giver_car == current_user.cars.last %>
-  <div class="booking-cards-container-show2">
-    <%= render "show_giver", booking: @booking %>
-  </div>
+    <div class="booking-cards-container-show2">
+      <%= render "show_giver", booking: @booking %>
+    </div>
   <% else %>
-    <div class="booking-cards-container-show1">
-      <div class="show-card-border-layer">
-        <div class="show-card-first-box">
-          <span class="parking-icone"> 🅿️ </span>
-          <i class="fa-solid fa-person-walking"></i>
-          <span class="card-important"> 200m 📍 </span>
-        </div>
-      </div>
-
-      <div class="show-card-border-layer">
-        <div class="show-card-second-box">
+    <div class="booking-cards-container-show3">
+      <div class="dark-container-show3">
+        <div class="booking-card-show3">
+          <div class="booking-card mb-2">
+            <span class="parking-icone"> 🅿️ </span>
+            <i class="fa-solid fa-person-walking"></i>
+            <span class="card-important"> 200m 📍 </span>
+          </div>
+        <div class="booking-card mb-2">
           <span class="parking-icone"> 🅿️</span>
           <span class="card-text"> libre dans  </span>
           <span class="card-important"><%= time_ago_in_words @booking.available_at%></span>
         </div>
-      </div>
-
-      <div class="show-card-border-layer">
-        <div class="show-card-third-box">
-          <span class="card-text">📍 <%= @booking.parking.address %></span>
+        <div class="address-card-text mb-0">
+          <span>📍 <%= @booking.parking.address %></span>
         </div>
       </div>
 
-      <div class="show-card-border-layer">
-        <div class="show-card-fourth-box">
-
-          <div class="show-card-car-infos-1">
-            <div class="show-card-img">
-              <% if @booking.giver_car.car_type == "citadine" %>
-                <%= image_tag("cars/citadine.png", width: 70, height: 70, crop: :fill) %>
-              <% elsif @booking.giver_car.car_type == "berline" %>
-                <%= image_tag("cars/berline.png", width: 70, height: 70, crop: :fill) %>
-              <% elsif @booking.giver_car.car_type == "van" %>
-                <%= image_tag("cars/van.png", width: 70, height: 70, crop: :fill) %>
-              <% end %>
+      <div class="booking-card">
+          <div class="bk-card-infos">
+            <div class="bk-card-img2">
+              <%= image_tag("cars/new-map-car.png", width: 40, height: 20, crop: :fill) %>
             </div>
-            <p class="card-text"><%= @booking.giver_car.car_type%></p>
+            <span class="index-card-text"><%= @booking.giver_car.car_type %></span>
           </div>
 
-          <div class="show-card-car-infos-2">
-            <span class="card-text"><%= @booking.giver_car.car_model%></span>
-            <span class="card-text"> <%= @booking.giver_car.car_color%></span>
+          <div class="bk-card-infos">
+            <span class="index-card-text"><%= @booking.giver_car.car_model %>
+            <%= @booking.giver_car.car_color %></span>
           </div>
-
-          <div class="show-card-car-infos-3">
-            <span class="card-text"><strong><%= @booking.giver_car.plate%></strong></span>
-          </div>
-
         </div>
       </div>
-      <div class="show-validation-button-border">
-        <div class="show-validation-button">
-            <%= link_to "RESERVER", booking_path, data: {turbo_method: :patch}, class: "map-go-btn" %>
-        </div>
-      </div>
+
+      <%= link_to "RESERVER", booking_path, data: {turbo_method: :patch},  class: "new-btn" %>
+
     </div>
   <% end %>
 </div>
