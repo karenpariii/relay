@@ -24,8 +24,8 @@
         </div>
 
         <div class="address-card-text">
-          <span>📍 <%= @booking.parking.address %></span>
-          <%# <span>Localiser la place dans GoogleMap : </span> %>
+          <%= image_tag "parking.png", class: "icon" %>
+          <span><%= @booking.parking.address %></span>
         </div>
 
         <div>
@@ -65,18 +65,19 @@
 
         <div class="show-card-first-box">
           <%= image_tag "parking.png", class: "icon" %>
-          <i class="fa-solid fa-person-walking">...</i>
+          <i class="fa-solid fa-person-walking">.....</i>
           <span> 200 m📍 </span>
         </div>
 
         <div class="show-card-second-box">
           <%= image_tag "parking.png", class: "icon" %>
-          <span class="card-text"> disponible dans  </span>
+          <span class="card-text"> dans  </span>
           <span class="card-important"><%= time_ago_in_words @booking.available_at%></span>
         </div>
 
         <div class="address-card-text">
-          <span>📍 <%= @booking.parking.address %></span>
+          <%= image_tag "parking.png", class: "icon" %>
+          <span><%= @booking.parking.address %></span>
         </div>
 
         <div class="show-card-fourth-box">
@@ -89,7 +90,7 @@
               <span class="index-card-text"><%= @booking.giver_car.car_model %></span>
               <span class="index-card-text"><%= @booking.giver_car.car_color %></span>
           </div>
-          
+
         </div>
 
         <%= link_to "RESERVER", booking_path, data: {turbo_method: :patch},  class: "new-btn" %>

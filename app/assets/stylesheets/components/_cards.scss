@@ -8,6 +8,9 @@
 }
 
 .address-card-text {
+  display: flex;
+  justify-content:space-between;
+
   margin-bottom: 18px;
 
   font-size: 18px;
