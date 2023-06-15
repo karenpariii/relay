@@ -23,5 +23,11 @@ export default class extends Controller {
     geocoder.on("clear", () => {
       this.inputTarget.value = "";
     });
+
+    this.geocoder = geocoder;
+  }
+
+  disconnect() {
+    this.geocoder.onRemove()
   }
 }
