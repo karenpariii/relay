@@ -1,6 +1,6 @@
 .map-container {
   width: 100vw;
-  height: calc(100vh - 46px);
+  height: 100vh;
 }
 
 .map {
@@ -12,16 +12,33 @@
 
 .map-search-fields-container{
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   z-index: 1;
   position: fixed;
-  top: 60px;
+  top: 50px;
+  width: 100vw;
+
 }
 
-.map-search-field {
-  background: rgba(217, 217, 217, 0.38);
-  height: 50px;
+.map-address-field {
+  flex-grow: 1;
+}
+
+
+.mapboxgl-ctrl-geocoder {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+
+.mapboxgl-ctrl-geocoder--input {
+  height: 50px !important;
+  width: calc(100vw - 139px) !important;
+}
+
+.map-time-and-btn-container{
+  display: flex;
+  flex-direction: row;
 }
 
 .map-time-field {
