@@ -54,6 +54,9 @@
   justify-content: start;
   background-color: black;
   background-size: cover;
+  position: fixed;
+  padding: 10px;
+  width: 100vw;
 
   p {
     color: #E8FF54;
@@ -119,4 +122,14 @@
   color: white;
   font-size: 20px;
   margin-bottom: 2px;
+}
+
+.new-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 63.81px);
+  justify-content: center;
+  background-image: url("ground/background-map.png");
+  background-size: cover;
+
 }
