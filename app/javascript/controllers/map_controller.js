@@ -10,6 +10,7 @@ export default class extends Controller {
     markers: Array,
     redimage: String,
     blueimage: String,
+    flagimage: String,
     query: String
   }
 
@@ -32,7 +33,7 @@ export default class extends Controller {
   showCurrentPosition() {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
-      const marker = { lat: latitude, lng: longitude, isCurrent: true };
+      const marker = { lat: latitude, lng: longitude, isCurrent: 1 };
       this.markersValue = [...this.markersValue, marker];
       this.#addMarkersToMap();
       this.#fitMapToMarkers();
@@ -46,15 +47,23 @@ export default class extends Controller {
           this.listTarget.outerHTML = data
         })
     });
+    this.#geocodeAddress(this.queryValue);
   }
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const element = document.createElement('div');
       element.className = 'custom-marker';
-      element.style.backgroundImage = `url(${marker.isCurrent ? this.redimageValue : this.blueimageValue})`;
+      // element.style.backgroundImage = `url(${marker.isCurrent ? this.redimageValue : this.blueimageValue})`;
+      if (marker.isCurrent === 1) {
+        element.style.backgroundImage = `url(${this.redimageValue})`;
+      } else if (marker.isCurrent === 2) {
+        element.style.backgroundImage = `url(${this.flagimageValue})`;
+      } else {
+        element.style.backgroundImage = `url(${this.blueimageValue})`;
+      }
 
-      if (this.hasListTarget) {
+      if (this.hasListTarget){
         element.addEventListener('click', (e) => {
           const parking = document.querySelector(`#parking-${marker.parkingId}`)
           if (parking) {
@@ -84,5 +93,29 @@ export default class extends Controller {
         duration: 0
       }
     )
+  }
+
+  // Fonction pour convertir une adresse en latitude et longitude
+  #geocodeAddress(address) {
+    var geocodingUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + encodeURIComponent(address) + ".json?access_token=" + this.apiKeyValue;
+
+    // Requête HTTP GET pour obtenir les coordonnées géographiques
+    fetch(geocodingUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.features && data.features.length > 0) {
+          // Récupération de la première caractéristique (résultat) retournée
+          var feature = data.features[0];
+          // Récupération de la latitude et longitude
+          var latitude = feature.center[1];
+          var longitude = feature.center[0];
+          console.log("Latitude : " + latitude);
+          console.log("Longitude : " + longitude);
+          const marker = { lat: latitude, lng: longitude, isCurrent: 2 };
+          this.markersValue = [...this.markersValue, marker];
+          this.#addMarkersToMap();
+          this.#fitMapToMarkers();
+        }
+      })
   }
 }
