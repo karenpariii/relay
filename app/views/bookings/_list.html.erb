@@ -2,20 +2,21 @@
   <% parkings.each do |parking| %>
     <% booking = parking.bookings.last%>
 
-    <div class="booking-card">
+    <div class="booking-card" id="parking-<%= parking.id %>">
 
       <div class="bk-card-img">
         <%= image_tag("cars/new-map-car.png", width: 40, height: 20, crop: :fill) %>
       </div>
 
       <div class="bk-card-infos">
-        <%if params[:query].present?%>
-          <span class="index-card-text">a <%= (parking.distance_from(params[:query])*1000).to_i %>m dans <%= time_ago_in_words booking.available_at %></span>
-        <%else%>
-          <% unless @current_lat.nil? %>
-            <span class="index-card-text">a <%= (parking.distance_from([@current_lat,@current_lng])*1000).to_i %>m dans <%= time_ago_in_words booking.available_at %></span>
+        <span class="index-card-text">
+          <%if params[:query].present?%>
+            à <%= (parking.distance_from(params[:query])*1000).to_i %>m
+          <% elsif @current_lat %>
+            à <%= (parking.distance_from([@current_lat,@current_lng])*1000).to_i %>m
           <% end %>
-        <% end %>
+          dans <%= time_ago_in_words booking.available_at %>
+        </span>
       </div>
 
       <div class="bk-card-go-btn">

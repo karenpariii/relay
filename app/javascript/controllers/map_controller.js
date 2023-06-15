@@ -1,9 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl'
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+// import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
 
-
-// Connects to data-controller="map"
 export default class extends Controller {
   static targets = ["list", "map"]
 
@@ -15,46 +13,42 @@ export default class extends Controller {
     flagimage: String,
     query: String
   }
-   connect() {
+
+  connect() {
     mapboxgl.accessToken = this.apiKeyValue
+
     this.map = new mapboxgl.Map({
       container: this.mapTarget,
       style: "mapbox://styles/mapbox/dark-v10"
     })
 
-    // this.map.on('click', () => {
-    //   document.querySelectorAll('.card-border-layer').forEach((card) => {
-    //     console.log(card)
-    //     card.classList.remove('d-none');
-    //   })
-    // })
-    if (this.hasListTarget){
+    if (this.hasListTarget) {
       this.showCurrentPosition()
     } else {
       this.#addMarkersToMap();
       this.#fitMapToMarkers();
     }
-    }
+  }
 
-      showCurrentPosition() {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              const { latitude, longitude } = position.coords;
-              const marker = { lat: latitude, lng: longitude, isCurrent: 1 };
-              this.markersValue = [...this.markersValue, marker];
-              this.#addMarkersToMap();
-              this.#fitMapToMarkers();
-              console.log("Position OK")
-              fetch(`/bookings?lat=${marker.lat}&lng=${marker.lng}&query=${this.queryValue}`, {headers: {"Accept": "text/plain"}})
-              .then(response => response.text())
-              .then((data) => {
-                this.listTarget.outerHTML = data
-              })
-            },
-          );
-          this.#geocodeAddress(this.queryValue);
-        }
+  showCurrentPosition() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+      const marker = { lat: latitude, lng: longitude, isCurrent: 1 };
+      this.markersValue = [...this.markersValue, marker];
+      this.#addMarkersToMap();
+      this.#fitMapToMarkers();
 
+      fetch(
+        `/bookings?lat=${marker.lat}&lng=${marker.lng}&query=${this.queryValue}`,
+        {headers: {"Accept": "text/plain"}}
+      )
+        .then(response => response.text())
+        .then((data) => {
+          this.listTarget.outerHTML = data
+        })
+    });
+    this.#geocodeAddress(this.queryValue);
+  }
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
@@ -70,15 +64,19 @@ export default class extends Controller {
       }
 
       if (this.hasListTarget){
-        element.dataset.parkingId = marker.parkingId
         element.addEventListener('click', (e) => {
-          document.querySelectorAll('.card-border-layer').forEach((card) => {
-            card.classList.add('d-none');
-          })
-          document.querySelector(`#parking-${e.currentTarget.dataset.parkingId}`).classList.remove('d-none')
+          const parking = document.querySelector(`#parking-${marker.parkingId}`)
+          if (parking) {
+            document.querySelectorAll('.booking-card').forEach((card) => {
+              card.classList.add('d-none');
+            })
+            parking.classList.remove('d-none')
+            document.querySelector('.booking-cards-container').classList.add('booking-card-selected')
+          }
         })
       }
-      new mapboxgl.Marker({ element })
+      new mapboxgl
+        .Marker({ element })
         .setLngLat([marker.lng, marker.lat])
         .addTo(this.map);
     });
@@ -87,32 +85,37 @@ export default class extends Controller {
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: { top: 50, bottom: 300, left: 70, right: 70 }, maxZoom: 15, duration: 0 })
+    this.map.fitBounds(
+      bounds,
+      {
+        padding: { top: 50, bottom: 300, left: 70, right: 70 },
+        maxZoom: 15,
+        duration: 0
+      }
+    )
   }
 
   // Fonction pour convertir une adresse en latitude et longitude
   #geocodeAddress(address) {
+    var geocodingUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + encodeURIComponent(address) + ".json?access_token=" + this.apiKeyValue;
 
-  var geocodingUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + encodeURIComponent(address) + ".json?access_token=" + this.apiKeyValue;
-
-  // Requête HTTP GET pour obtenir les coordonnées géographiques
-  fetch(geocodingUrl)
-    .then(response => response.json())
-    .then(data => {
-      if (data.features && data.features.length > 0) {
-        // Récupération de la première caractéristique (résultat) retournée
-        var feature = data.features[0];
-        // Récupération de la latitude et longitude
-        var latitude = feature.center[1];
-        var longitude = feature.center[0];
-        console.log("Latitude : " + latitude);
-        console.log("Longitude : " + longitude);
-        const marker = { lat: latitude, lng: longitude, isCurrent: 2 };
-        this.markersValue = [...this.markersValue, marker];
-        this.#addMarkersToMap();
-        this.#fitMapToMarkers();
-      }
-    })
-}
-
+    // Requête HTTP GET pour obtenir les coordonnées géographiques
+    fetch(geocodingUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.features && data.features.length > 0) {
+          // Récupération de la première caractéristique (résultat) retournée
+          var feature = data.features[0];
+          // Récupération de la latitude et longitude
+          var latitude = feature.center[1];
+          var longitude = feature.center[0];
+          console.log("Latitude : " + latitude);
+          console.log("Longitude : " + longitude);
+          const marker = { lat: latitude, lng: longitude, isCurrent: 2 };
+          this.markersValue = [...this.markersValue, marker];
+          this.#addMarkersToMap();
+          this.#fitMapToMarkers();
+        }
+      })
+  }
 }

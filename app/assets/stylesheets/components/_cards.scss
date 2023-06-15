@@ -1,5 +1,5 @@
 .index-card-text {
-  font-size: 20px;
+  font-size: 16px;
   color: white;
 
   background: black;
@@ -40,12 +40,12 @@
 .card-booking h2 {
   font-size: 16px;
   font-weight: bold;
-  font-family: 'Laila', sans-serif;
+  font-family: 'Roboto';
   margin: 0;
 }
 
 .card-booking p {
-  font-family: 'Laila', sans-serif;
+  font-family: 'Roboto';
   font-size: 12px;
   line-height: 1;
   opacity: .7;
@@ -63,6 +63,8 @@
   align-content: center;
   justify-content: space-between;
   align-items: center;
+
+  z-index: 1;
 
   // background: rgba(217, 217, 217, 0.38);
 }
