@@ -10,11 +10,6 @@
 
       <div class="bk-card-infos">
         <span class="index-card-text">
-          <%if params[:query].present?%>
-            <%=booking.giver_car.user.first_name%>
-          <% elsif @current_lat %>
-            <%=booking.giver_car.user.first_name%>
-          <% end %>
           pars dans <%= time_ago_in_words booking.available_at %>
         </span>
       </div>
