@@ -11,7 +11,7 @@
       <div class="bk-card-infos">
         <span class="index-card-text">
           <%if params[:query].present?%>
-            à <%= (parking.distance_from(params[:query])*1000).to_i %> m
+            à <%= (parking.distance_from(params[:query])*1000).to_i %> rm
           <% elsif @current_lat %>
             à <%= (parking.distance_from([@current_lat,@current_lng])*1000).to_i %>m
           <% end %>
