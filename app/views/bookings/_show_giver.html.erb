@@ -56,11 +56,15 @@
 
 
       <% else %>
-        <h2> On cherche ton Relay! </h2>
-        <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-          data-controller="booking-subscription"
-          data-booking-subscription-booking-id-value=<%= booking.id %>>
-          <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
+        <div class="booking-cards-container-show-giver">
+          <div class="booking-card index-card-text">
+            <h2> On cherche ton Relay! </h2>
+            <div class="spinner-grow flex" role="status"
+              data-controller="booking-subscription"
+              data-booking-subscription-booking-id-value=<%= booking.id %>>
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>
