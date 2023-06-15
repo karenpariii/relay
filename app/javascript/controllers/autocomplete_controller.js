@@ -20,8 +20,18 @@ export default class extends Controller {
       this.inputaddressTarget.value = event.result.place_name;
     });
 
+    geocoder.on("results", (event) => {
+      document.querySelector('.booking-cards-container').classList.add('d-none');
+    });
+
     geocoder.on("clear", () => {
       this.inputTarget.value = "";
     });
+
+    this.geocoder = geocoder;
+  }
+
+  disconnect() {
+    this.geocoder.onRemove()
   }
 }
