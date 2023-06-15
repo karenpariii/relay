@@ -14,70 +14,58 @@
     </div>
   </div>
 
-  <div class="show-card-container">
+  <div class="booking-cards-container">
     <% if @booking.taker_car == current_user.cars.last %>
 
 
-      <div class="show-card-border-layer">
+      <div class="booking-card">
 
-        <div class="show-card-first-box-b">
-          <span class="card-text"><%=  @booking.giver_car.user.first_name%></span>
-          <span class="card-text">Vous attend dans </span>
-          <span class="card-important"><%= time_ago_in_words @booking.available_at%></span>
+        <div class="index-card-text">
+          <span><%=  @booking.giver_car.user.first_name%></span>
+          <span>vous attend dans </span>
+          <span><%= time_ago_in_words @booking.available_at%></span>
         </div>
 
       </div>
 
-      <div class="show-card-border-layer">
+      <div class="booking-card">
 
-        <div class="show-card-second-box-b">
-          <span class="text">📍 <%= @booking.parking.address %></span>
+        <div class="index-card-text">
+          <span>📍 <%= @booking.parking.address %></span>
         </div>
 
       </div>
 
-      <div class="show-card-border-layer">
-
-        <div class="show-card-third-box-b">
+      <div class="booking-card">
+        <div class="index-card-text">
             <%# <span>Localiser la place dans GoogleMap : </span> %>
             <%= link_to "https://google.fr/maps/place/#{@booking.parking.address}", target: "_blank" do %>
             <%= image_tag('gmap.png',width: 30, height: 30, crop: :fill ) %>
               <%# <i class="fa fa-map-marker" aria-hidden="true"></i> %>
-            <% end %></h2>
-        </div>
-
-      </div>
-
-      <div class="show-card-border-layer">
-
-        <div class="show-card-fourth-box">
-
-          <div class="show-card-car-infos-1">
-
-            <div class="show-card-img">
-              <% if @booking.giver_car.car_type == "citadine" %>
-                <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-              <% elsif @booking.giver_car.car_type == "berline" %>
-                <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-              <% elsif @booking.giver_car.car_type == "van" %>
-                <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-              <% end %>
-            </div>
-
-            <span><%= @booking.giver_car.car_type%></span>
-          </div>
-
-          <div class="show-card-car-infos-2">
-            <span><%= @booking.giver_car.car_model%></span>
-            <span> <%= @booking.giver_car.car_color%></span>
-          </div>
-
-          <div class="show-card-car-infos-3">
-            <span class="card-text"><strong><%= @booking.giver_car.plate%></strong></span>
-          </div>
-
+            <% end %>
         </div>
       </div>
+
+
+      <div class="booking-card">
+        <div></div>
+          <div class="bk-card-infos">
+            <%= image_tag("cars/new-map-car.png", width: 40, height: 20, crop: :fill) %>
+            <span class="index-card-text"><%= @booking.giver_car.car_type %></span>
+          </div>
+
+          <div class="bk-card-infos">
+            <span class="index-card-text"><%= @booking.giver_car.car_model %>
+            <%= @booking.giver_car.car_color %></span>
+          </div>
+
+          <div class="bk-card-infos">
+            <span class="index-card-text"><strong><%= @booking.giver_car.plate %></strong></span>
+          </div>
+      </div>
+
+
+
 
       <div class="show-validation-button-border">
         <div class="show-validation-button">
