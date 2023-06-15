@@ -2,16 +2,19 @@
   <% parkings.each do |parking| %>
     <% booking = parking.bookings.last%>
 
-    <div class="booking-card">
+    <div class="booking-card" id="parking-<%= parking.id %>">
 
       <div class="bk-card-img">
         <%= image_tag("cars/new-map-car.png", width: 40, height: 20, crop: :fill) %>
       </div>
 
       <div class="bk-card-infos">
-        <% unless @current_lat.nil? %>
-        <span class="index-card-text">a <%= (parking.distance_from([@current_lat,@current_lng])*1000).to_i %>m dans <%= time_ago_in_words booking.available_at %></span>
-        <% end %>
+        <span class="index-card-text">
+          <% unless @current_lat.nil? %>
+            à <%= (parking.distance_from([@current_lat,@current_lng])*1000).to_i %>m
+          <% end %>
+          dans <%= time_ago_in_words booking.available_at %>
+        </span>
       </div>
 
       <div class="bk-card-go-btn">

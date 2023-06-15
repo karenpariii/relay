@@ -28,13 +28,13 @@
   background-size: cover;
 }
 
-.index-container {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 46px);
-  background-color: pink;
-  background-size: cover;
-}
+// .index-container {
+//   display: flex;
+//   flex-direction: column;
+//   height: calc(100vh - 46px);
+//   background-color: pink;
+//   background-size: cover;
+// }
 
 .show-card-container {
   display: flex;
@@ -46,24 +46,6 @@
   width: 100vw;
 }
 
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  background-color: black;
-  background-size: cover;
-  position: fixed;
-  padding: 10px;
-  width: 100vw;
-
-  p {
-    color: #E8FF54;
-    font-size: 20px;
-    font-family: 'Laila', sans-serif;
-    margin: 0;
-  }
-
-}
 .booking-cards-container {
   z-index: 1;
   position: fixed;
@@ -71,7 +53,7 @@
   margin: 0 2vw;
 
   width: 96vw;
-  height: 192px;
+  height: 200px;
   border-radius: 10px;
 
   display: flex;
@@ -82,6 +64,11 @@
 
   overflow: scroll;
 }
+
+.booking-card-selected {
+  height: 58px;
+}
+
 .booking-cards-container-show-giver {
   z-index: 1;
 
