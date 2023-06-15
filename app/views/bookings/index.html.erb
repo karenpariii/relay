@@ -2,35 +2,6 @@
 
 <div class="index-container">
 
-  <%= form_with url: bookings_path, method: :get, class: "map-search-fields-container py-2" do %>
-
-    <div class="map-search-field" data-controller="autocomplete" data-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Adresse",
-        data: {
-          autocomplete_target: "inputaddress",
-        },
-        class: "d-none" %>
-        <div data-autocomplete-target= "input">
-
-        </div>
-    </div>
-
-
-    <div class="map-search-field">
-      <%= text_field_tag :time,
-      params[:time],
-      class: "form-control",
-      placeholder: "Time",
-      type: "time",
-      value: Time.current.strftime('%H:%M')%>
-    </div>
-
-    <%= submit_tag "Search", class: "btn-flat-white" %>
-  <% end %>
-
   <div data-controller="map"
         data-map-query-value="<%= params[:query] %>"
         data-map-markers-value="<%= @markers.to_json %>"
@@ -40,8 +11,38 @@
     <div class="map">
       <div class="map-container"
         data-map-target="map">
+
+        <%= form_with url: bookings_path, method: :get, class: "map-search-fields-container" do %>
+
+          <div class="map-search-field" data-controller="autocomplete" data-autocomplete-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            <%= text_field_tag :query,
+              params[:query],
+              # class: "form-control",
+              placeholder: "Adresse",
+              data: {
+                autocomplete_target: "inputaddress",
+              },
+              class: "d-none" %>
+              <div data-autocomplete-target= "input">
+
+              </div>
+          </div>
+
+          <div class="map-search-field">
+            <%= text_field_tag :time,
+            params[:time],
+            class: "map-time-field",
+            placeholder: "Time",
+            type: "time",
+            value: Time.current.strftime('%H:%M')%>
+          </div>
+
+          <%= submit_tag "Go", class: "map-go-btn" %>
+        <% end %>
       </div>
+
     </div>
+
     <%= render "list", parkings: @parkings %>
   </div>
 </div>

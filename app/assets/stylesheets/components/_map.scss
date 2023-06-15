@@ -1,4 +1,48 @@
+.map-container {
+  width: 100vw;
+  height: calc(100vh - 46px);
+}
 
+.map {
+  width: 100vw;
+  height: calc(100vh - 46px);
+  position: fixed;
+  top: 46px;
+}
+
+.map-search-fields-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 1;
+  position: fixed;
+  top: 45px;
+}
+
+.map-search-field {
+  background: rgba(217, 217, 217, 0.38);
+  height: 50px;
+}
+
+.map-time-field {
+  font-size: 18px;
+  color: white;
+  height: 50px;
+  background: black;
+  border: none;
+  padding-left: 8px;
+}
+
+.map-go-btn {
+  height: 50px;
+  padding: 11px;
+  border: none;
+
+  background: #E8FF54;
+  
+  font-size: 28px;
+  font-family: 'Monomaniac One', sans-serif;
+}
 .map-container-show {
   width: auto;
   height: calc(100vh - 60px);
@@ -6,29 +50,6 @@
   position: fixed;
   top: 50px;
 }
-
-.map-container {
-  width: 100vw;
-  height: calc(100vh - 46px - 56px );
-}
-
-.map {
-  height: calc(100vh - 102px);
-  position: fixed;
-  top: calc(54px + 46px);
-  height: 300px;
-  width: auto;
-  width: 100vw;
-}
-
-.map-search-fields-container{
-  display: flex;
-  justify-content: space-evenly;
-  background-color: black;
-  background-size: cover;
-  background-position: bottom;
-}
-
 .marker {
   width: 20px;
   height: 20px;

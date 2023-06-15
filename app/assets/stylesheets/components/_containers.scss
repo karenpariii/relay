@@ -63,19 +63,20 @@
 }
 .booking-cards-container {
   z-index: 1;
+  position: fixed;
+  bottom: 96px;
+  margin: 0 2vw;
+
+  width: 96vw;
+  height: 192px;
+  border-radius: 10px;
 
   display: flex;
   flex-direction: column;
 
   background: rgba(217, 217, 217, 0.38);
-  background-size: cover;
-  position: fixed;
-  bottom: 78px;
-  width: 100vw;
-  height: 300px;
+  backdrop-filter: blur(1px);
   overflow: scroll;
-
-  // backdrop-filter: blur(1px);
 }
 .booking-cards-container-show-giver {
   z-index: 1;
