@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
     @current_lat = nil
     @current_lng = nil
     if params[:query].present?
-      @parkings = Parking.near(params[:query], 1)
+      @parkings = Parking.near(params[:query], 0.5)
                          .joins(:bookings)
                          .where(bookings: { taker_car: nil })
                          .distinct
