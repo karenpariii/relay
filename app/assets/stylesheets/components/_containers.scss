@@ -13,7 +13,7 @@
   // flex-wrap: nowrap;
   // align-content: center;
   justify-content: center;
-  background-image: url("ground/texture-asphalte4b.png");
+  background-image: url("ground/background-map.png");
   background-size: cover;
 }
 
@@ -204,7 +204,35 @@
   overflow: scroll;
   padding: 20px;
 }
+.booking-cards-container-show3 {
+  z-index: 1;
+  position: fixed;
+  bottom: 96px;
+  margin: 0 2vw;
+  background: rgba(217, 217, 217, 0.38);
+  width: 96vw;
+  height: 320px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(1px);
+  overflow: scroll;
+  padding: 20px;
+}
 .dark-container {
+  font-size: 20px;
+  color: white;
+  background: black;
+  border-radius: 1em;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dark-container-show3 {
   font-size: 20px;
   color: white;
   background: black;

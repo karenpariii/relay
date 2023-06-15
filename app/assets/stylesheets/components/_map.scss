@@ -36,6 +36,12 @@
   width: calc(100vw - 139px) !important;
 }
 
+.mapboxgl-ctrl-geocoder--input:focus{
+  outline: none !important;
+}
+
+
+
 .map-time-and-btn-container{
   display: flex;
   flex-direction: row;
