@@ -8,17 +8,17 @@
 }
 
 .address-card-text {
-  font-size: 20px;
+  margin-bottom: 18px;
+
+  font-size: 18px;
   color: white;
 
   background: black;
   border-radius: 1em;
-  padding: 0 0.8em 0.2em 0.8em;
-  margin-bottom: 10px;
-  text-align: center;
 }
+
 .card-text {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .card-important {
@@ -141,20 +141,13 @@
   font-size: small;
 }
 
-.show-card-border-layer{
-  background-image: url("ground/texture-white-stripe.png");
-  background-size: cover;
-  padding: 15px;
-}
 
 .show-card-first-box {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 
-  background-color: rgba(238, 238, 238, 0.7);
-  border-radius: 4px;
+  margin-bottom: 10px;
 }
 
 .show-card-first-box-b {
@@ -162,61 +155,42 @@
 
   justify-content: space-between;
   align-items: center;
-
-
-  background-color: rgba(238, 238, 238, 0.7);
-  border-radius: 4px;
 }
 
 .show-card-second-box {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 
-  background-color: rgba(238, 238, 238, 0.7);
-  border-radius: 4px;
-  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .show-card-second-box-b {
   display: flex;
-
   justify-content: center;
-
-  background-color: rgba(238, 238, 238, 0.7);
-  border-radius: 4px;
-  font-size: 16px;
 }
 
 .show-card-third-box {
   display: flex;
-
   justify-content: space-around;
-  background-color: rgba(238, 238, 238, 0.7);
-  border-radius: 4px;
 }
 
 .show-card-third-box-b {
   display: flex;
-
   justify-content: center;
-  background-color: rgba(238, 238, 238, 0.7);
-  border-radius: 4px;
+
+  margin-bottom: 10px;
+
 }
 
 .show-card-fourth-box {
   display: flex;
   justify-content: space-between;
 
-
-  background-color: rgba(238, 238, 238, 0.7);
-  border-radius: 4px;
-
+  margin-bottom: 10px;
 
   .show-card-car-infos-1{
     display: flex;
-    flex-direction: column;
     align-items: center;
 
     font-size: large;
@@ -229,14 +203,12 @@
     justify-content: space-around;
 
     font-size: large;
-
   }
 
   .show-card-car-infos-3{
     display: flex;
     flex-direction: column;
     justify-content: center;
-
   }
 }
 
@@ -269,4 +241,11 @@
   padding: 0 0.8em 0.2em 0.8em;
   display: flex;
   justify-content: space-between;
+}
+
+
+.booking-card-show-line1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
