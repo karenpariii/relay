@@ -135,4 +135,83 @@
   background-size: cover;
 }
 
+.booking-cards-container-show {
+  z-index: 1;
+  position: fixed;
+  bottom: 96px;
+  margin: 0 2vw;
 
+  width: 96vw;
+  height: 192px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  backdrop-filter: blur(1px);
+  overflow: scroll;
+}
+.booking-cards-container-show-giver {
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  background: rgba(217, 217, 217, 0.38);
+  background-size: cover;
+  position: fixed;
+  bottom: 100px;
+  width: 100vw;
+  height: 100px;
+  overflow: scroll;
+  padding-top: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 5px;
+  // backdrop-filter: blur(1px);
+}
+.booking-cards-container-show1 {
+  z-index: 1;
+  position: fixed;
+  bottom: 96px;
+  margin: 0 2vw;
+  background: rgba(217, 217, 217, 0.38);
+  width: 96vw;
+  height: 320px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(1px);
+  overflow: scroll;
+  padding: 8px;
+}
+.booking-cards-container-show2 {
+  z-index: 1;
+  position: fixed;
+  bottom: 96px;
+  margin: 0 2vw;
+  background: rgba(217, 217, 217, 0.38);
+  width: 96vw;
+  height: 80px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(1px);
+  overflow: scroll;
+  padding: 20px;
+}
+.dark-container {
+  font-size: 20px;
+  color: white;
+  background: black;
+  border-radius: 1em;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
