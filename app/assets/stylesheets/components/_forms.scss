@@ -1,5 +1,6 @@
 .form-booking {
   font-size: 20px;
+  font-family: 'Monomaniac One', sans-serif;
   color: white;
   background: black;
   border-radius: 1em;
@@ -7,30 +8,30 @@
   margin: 10px;
 }
 
-.form-login {
-  background-image: url("ground/texture-white-stripe.png");
+.form-login-black {
+  background: rgba(217, 217, 217, 0.38);
   background-size: cover;
   padding: 20px;
-  // height: 70vh;
-  // margin-left: 4rem;
-  // margin-right: 4rem;
-  // display: flex;
-  // flex-direction: column;
-  // flex-wrap: wrap;
-  // align-content: center;
-  // justify-content: center;
-  // align-items: center;
+  font-size: 20px;
+  color: white;
 
-  .btn {
-    width: 100%;
-    border: 1px solid #32313a;
+  .form-inputs {
+    border-radius: 10px;
+    padding: 10px;
+
+    color: white;
+    background-color: black;
   }
-}
 
-.form-inputs {
-  color: #32313a
-}
+  .form-actions {
+    margin-top: 10px;
 
-.form-actions {
-  color: #32313a
+    border-radius: 10px;
+
+    background: #E8FF54;
+    border: 1px solid white;
+
+    font-family: 'Monomaniac One', sans-serif;
+    color: black;
+  }
 }
