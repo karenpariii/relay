@@ -7,6 +7,16 @@
   padding: 0 0.8em 0.2em 0.8em;
 }
 
+.address-card-text {
+  font-size: 20px;
+  color: white;
+
+  background: black;
+  border-radius: 1em;
+  padding: 0 0.8em 0.2em 0.8em;
+  margin-bottom: 10px;
+  text-align: center;
+}
 .card-text {
   font-size: 16px;
 }
@@ -110,7 +120,6 @@
 }
 
 .bk-card-img {
-
   margin-left: 1em;
   margin-bottom: 0.3em;
 }
@@ -220,4 +229,9 @@
 
 .flexbox {
   display: flex;
+}
+
+.bk-card-img2 {
+  display: flex;
+  justify-content: center;
 }
