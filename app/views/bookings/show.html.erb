@@ -57,14 +57,10 @@
 
         </div>
       </div>
-
-        <%= link_to "JE SUIS BIEN GARÉ", bookings_path, class: "new-btn" %>
-
+      <%= link_to "JE SUIS BIEN GARÉ", bookings_path, class: "new-btn" %>
     </div>
   <% elsif @booking.giver_car == current_user.cars.last %>
-    <div class="booking-cards-container-show2">
-      <%= render "show_giver", booking: @booking %>
-    </div>
+    <%= render "show_giver", booking: @booking %>
   <% else %>
     <div class="booking-cards-container-show3">
       <div class="dark-container-show3">

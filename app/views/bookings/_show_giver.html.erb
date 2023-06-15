@@ -1,71 +1,56 @@
-
-
 <div data-controller="booking-subscription"
   data-booking-subscription-booking-id-value='<%= booking.id %>'>
   <% if booking.taker_car.present? %>
+    <div class="booking-cards-container-show4">
+      <div class="dark-container">
+        <div class="booking-card">
+          <div class="index-card-text">
+            <span><%=  booking.taker_car.user.first_name %></span>
+            <span>récupère votre place dans </span>
+            <span><%= time_ago_in_words booking.available_at %></span>
+          </div>
+        </div>
 
-    <div class="show-card-border-layer">
-      <div class="show-card-first-box-b">
-        <%# <h2>Mon Relay arrive !</h2> %>
-        <span class="card-text"><%=  booking.taker_car.user.first_name%></span>
-        <span class="card-text">récupère votre place dans </span>
-        <span class="card-important"><%= time_ago_in_words booking.available_at%></span>
-      </div>
-    </div>
-
-    <div class="show-card-border-layer">
-      <div class="show-card-third-box-b">
-          <%# <span>Localiser la place dans GoogleMap : </span> %>
-          <%= link_to "https://google.fr/maps/place/#{booking.parking.address}", target: "_blank" do %>
+        <div class="booking-card">
+          <div class="address-card-text mb-0">
+            <span>📍 <%= @booking.parking.address %></span>
+            <%# <span>Localiser la place dans GoogleMap : </span> %>
+          </div>
+        </div>
+        <div class="booking-card mb-2">
+          <%= link_to "https://google.fr/maps/place/#{@booking.parking.address}", target: "_blank" do %>
             <%= image_tag('gmap.png',width: 30, height: 30, crop: :fill ) %>
             <%# <i class="fa fa-map-marker" aria-hidden="true"></i> %>
-          <% end %></h2>
-      </div>
-    </div>
-
-    <div class="show-card-border-layer">
-        <div class="show-card-fourth-box">
-
-          <div class="show-card-car-infos-1">
-
-            <div class="show-card-img">
-              <% if booking.taker_car.car_type == "citadine" %>
-                <%= image_tag("cars/citadine.png", width: 50, height: 50, crop: :fill) %>
-              <% elsif booking.taker_car.car_type == "berline" %>
-                <%= image_tag("cars/berline.png", width: 50, height: 50, crop: :fill) %>
-              <% elsif booking.taker_car.car_type == "van" %>
-                <%= image_tag("cars/van.png", width: 50, height: 50, crop: :fill) %>
-              <% end %>
+          <% end %>
+        </div>
+        <div class="booking-card">
+          <div class="bk-card-infos">
+            <div class="bk-card-img2">
+              <%= image_tag("cars/new-map-car.png", width: 40, height: 20, crop: :fill) %>
             </div>
-
-            <span><%= booking.taker_car.car_type%></span>
-
+              <span class="index-card-text"><%= @booking.taker_car.car_type %></span>
           </div>
 
-          <div class="show-card-car-infos-2">
-            <span><%= booking.taker_car.car_model%></span>
-            <span> <%= booking.taker_car.car_color%></span>
+          <div class="bk-card-infos">
+            <span class="index-card-text"><%= @booking.taker_car.car_model %>
+            <%= @booking.taker_car.car_color %></span>
+            <span class="index-card-text"><strong><%= @booking.taker_car.plate %></strong></span>
           </div>
-
-          <div class="show-card-car-infos-3">
-            <span class="card-text"><strong><%= booking.taker_car.plate%></strong></span>
-          </div>
-
         </div>
       </div>
-
-
-      <% else %>
-        <div class="booking-card-show">
-          <div class="index-card-text-show">
-            <h2> On cherche ton Relay! </h2>
-            <div class="spinner-grow flex" role="status"
-              data-controller="booking-subscription"
-              data-booking-subscription-booking-id-value=<%= booking.id %>>
-              <span class="sr-only">Loading...</span>
-            </div>
+    </div>
+  <% else %>
+    <div class="booking-cards-container-show2">
+      <div class="booking-card-show">
+        <div class="index-card-text-show">
+          <h2> On cherche ton Relay! </h2>
+          <div class="spinner-grow flex" role="status"
+            data-controller="booking-subscription"
+            data-booking-subscription-booking-id-value=<%= booking.id %>>
+            <span class="sr-only">Loading...</span>
           </div>
         </div>
-      <% end %>
+      </div>
     </div>
+  <% end %>
 </div>
