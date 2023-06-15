@@ -7,6 +7,16 @@
   padding: 0 0.8em 0.2em 0.8em;
 }
 
+.address-card-text {
+  font-size: 20px;
+  color: white;
+
+  background: black;
+  border-radius: 1em;
+  padding: 0 0.8em 0.2em 0.8em;
+  margin-bottom: 10px;
+  text-align: center;
+}
 .card-text {
   font-size: 16px;
 }
@@ -40,12 +50,12 @@
 .card-booking h2 {
   font-size: 16px;
   font-weight: bold;
-  font-family: 'Roboto';
+  font-family: 'Sarabun';
   margin: 0;
 }
 
 .card-booking p {
-  font-family: 'Roboto';
+  font-family: 'Sarabun';
   font-size: 12px;
   line-height: 1;
   opacity: .7;
@@ -112,7 +122,6 @@
 }
 
 .bk-card-img {
-
   margin-left: 1em;
   margin-bottom: 0.3em;
 }
@@ -222,4 +231,31 @@
 
 .flexbox {
   display: flex;
+}
+
+.bk-card-img2 {
+  display: flex;
+  justify-content: center;
+}
+
+.booking-card-show {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 1;
+
+  // background: rgba(217, 217, 217, 0.38);
+}
+.index-card-text-show {
+  font-size: 16px;
+  color: white;
+
+  background: black;
+  border-radius: 1em;
+  padding: 0 0.8em 0.2em 0.8em;
+  display: flex;
+  justify-content: space-between;
 }
