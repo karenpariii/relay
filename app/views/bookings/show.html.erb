@@ -23,7 +23,7 @@
           <div class="index-card-text">
             <span><%=  @booking.giver_car.user.first_name%></span>
             <span>vous attend dans </span>
-            <span><%= time_ago_in_words @booking.available_at%></span>
+            <span class="countdown"><%= time_ago_in_words @booking.available_at%></span>
           </div>
 
         </div>
@@ -57,7 +57,7 @@
 
         </div>
       </div>
-      <%= link_to "JE SUIS BIEN GARÉ", bookings_path, class: "new-btn" %>
+      <%= link_to "JE SUIS BIEN GARÉ(E)", bookings_path, class: "new-btn" %>
     </div>
   <% elsif @booking.giver_car == current_user.cars.last %>
     <%= render "show_giver", booking: @booking %>

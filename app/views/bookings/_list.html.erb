@@ -11,11 +11,11 @@
       <div class="bk-card-infos">
         <span class="index-card-text">
           <%if params[:query].present?%>
-            à <%= (parking.distance_from(params[:query])*1000).to_i %> rm
+            <%=booking.giver_car.user.first_name%>
           <% elsif @current_lat %>
-            à <%= (parking.distance_from([@current_lat,@current_lng])*1000).to_i %>m
+            <%=booking.giver_car.user.first_name%>
           <% end %>
-          dans <%= time_ago_in_words booking.available_at %>
+          pars dans <%= time_ago_in_words booking.available_at %>
         </span>
       </div>
 
