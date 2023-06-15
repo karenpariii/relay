@@ -4,11 +4,14 @@ class BookingsController < ApplicationController
     @current_lat = nil
     @current_lng = nil
     if params[:query].present?
-      @parkings = Parking.near(params[:query], 0.5)
+      @parkings = Parking.near(params[:query], 5)
                          .joins(:bookings)
                          .where(bookings: { taker_car: nil })
                          .distinct
                         #  .where("bookings.available_at BETWEEN ? AND ?", params[:time] - 10.minutes, params[:time] + 10.minutes)
+      # @destination = Parking.create(address: params[:query]).to_a
+      # @parkings = @parkings.to_a
+      # @parkings.push(@destination)
     else
       @parkings = Parking.all
     end
