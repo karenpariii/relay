@@ -2,9 +2,9 @@
 <%= render "shared/header" %>
 
 
-<div class="base-container">
+<div class="index-container">
 
-  <div class="map-container-show"
+  <div class="map-container"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
