@@ -15,18 +15,18 @@
 
   font-size: 18px;
   color: white;
-
-  background: black;
-  border-radius: 1em;
 }
 
 .card-text {
   font-size: 18px;
+  color: white;
 }
 
 .card-important {
-  border: 2px solid black;
+  border: 2px solid white;
   padding: 5px;
+  font-weight: 400;
+  color: white;
 }
 
 .countdown {
@@ -158,6 +158,8 @@
 
   justify-content: space-between;
   align-items: center;
+
+  margin-bottom: 15px;
 }
 
 .show-card-second-box {
@@ -171,6 +173,8 @@
 .show-card-second-box-b {
   display: flex;
   justify-content: center;
+
+  margin-bottom: 15px;
 }
 
 .show-card-third-box {
@@ -215,6 +219,16 @@
   }
 }
 
+.show-card-fourth-box-b {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
+
 .flexbox {
   display: flex;
 }
@@ -251,4 +265,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.img-type {
+  display: flex;
+  flex-direction: column;
+}
+.model-color {
+  display: flex;
+  flex-direction: column;
 }
