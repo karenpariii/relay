@@ -25,7 +25,7 @@ car_aligiver = Car.create!(car_model: "Renault Scénic", plate: "AZ-678-ER", car
 car_damsogiver = Car.create!(car_model: "Hummer limousine", plate: "AQ-567-KL", car_color: "Paillette", car_type: "van", user: damsogiver)
 
 car_orelgiver = Car.create!(car_model: "Peugeot 205", plate: "AR-908-KL", car_color: "Bleue", car_type: "citadine", user: orelgiver)
-car_valdgiver = Car.create!(car_model: "Renault Twingo", plate: "ER-897-4L", car_color: "Rose", car_type: "citadine", user: valdgiver)
+car_valdgiver = Car.create!(car_model: "Ford Fiesta", plate: "ER-897-4L", car_color: "Rose", car_type: "citadine", user: valdgiver)
 car_sylvigiver = Car.create!(car_model: "Fiat Panda", plate: "ER-897-4L", car_color: "A Fleurs", car_type: "citadine", user: sylviegiver)
 
 
@@ -37,7 +37,7 @@ parking_5 = Parking.create!(address: "110 Rue Amelot, 75011 Paris", latitude: "4
 parking_6 = Parking.create!(address: "49 Rue du Chemin Vert, 75011 Paris", latitude: "48.85964004829994", longitude: "2.375311098558855")
 
 parking_7 = Parking.create!(address: "13 rue saint hubert, 75011 PARIS", latitude: "48.86420259820049", longitude: "2.380070412328287")
-parking_8 = Parking.create!(address: "72 Rue Jean-Pierre Timbaud, 75011 PARIS", latitude: "48.86730979370463", longitude: "2.3755347681490186")
+parking_8 = Parking.create!(address: "127 rue saint maur, 75011 PARIS", latitude: "48.86730979370463", longitude: "2.3755347681490186")
 
 
 booking_1 = Booking.create!(available_at: 15.minutes.from_now, parking: parking_1, giver_car: car_karengiver)
