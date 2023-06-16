@@ -19,7 +19,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.mapTarget,
-      style: "mapbox://styles/mapbox/dark-v10"
+      style: "mapbox://styles/magamares/cliyagtia014v01qvapx4fpaw"
     })
 
     if (this.hasListTarget) {
